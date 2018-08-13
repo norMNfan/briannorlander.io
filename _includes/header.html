@@ -1,0 +1,22 @@
+<header>
+    <div class="content">
+        {% if page.redirect.to %}
+        <h1 class="path">&nbsp;</h1> <!-- For spacing -->
+        {% else %}
+        <h1 class="path">
+            <span class="component"><a href="/">~</a></span>
+            <span class="slash">/</span>
+            <span class="component"><a href="/">Brian Norlander</a></span>
+            {% if page.collection %}
+            <span class="slash">/</span>
+            <span class="component capitalize"><a href="/{{ page.collection }}/">{{ page.collection }}</a></span>
+            {% endif %}
+            {% unless page.is_home %}
+            <span class="slash">/</span>
+            <br class="mobile-only">
+            <span class="component"><a href="{{ page.url }}">{{ page.title }}</a></span>
+            {% endunless %}
+        </h1>
+        {% endif %}
+    </div>
+</header>
