@@ -1,0 +1,170 @@
+$box-spacing: 3rem;
+
+.boxes {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 (-$box-spacing / 2) (-$box-spacing * 2);
+
+  .box {
+    justify-content: flex-start;
+    margin-bottom: $box-spacing;
+    padding: 0 ($box-spacing / 2);
+    position: relative;
+    width: 25%;
+
+    .figure-wrapper {
+      display: flex;
+      flex-direction: column;
+      // flex: 1;
+      justify-content: center;
+
+      figure {
+        flex: 1;
+      }
+    }
+
+    .more {
+      display: block;
+      flex: 0;
+      padding-bottom: 50%;
+      position: relative;
+      width: 100%;
+
+      a {
+        @extend %subtle-link;
+        align-items: center;
+        background-color: $lighter-gray;
+        border: 0;
+        bottom: 0;
+        color: $black;
+        display: flex;
+        font-size: 4rem;
+        justify-content: center;
+        left: 0;
+        position: absolute;
+        right: 0;
+        text-decoration: none;
+        top: 0;
+        transition: 0.3s ease background-color;
+        width: 100%;
+
+      }
+
+      a:hover {
+        background: $light-gray;
+      }
+    }
+
+    h3 {
+      margin-top: 1.5rem;
+      // height: 3rem;
+
+      a {
+        @extend %subtle-link;
+      }
+    }
+  }
+
+  .feature-section {
+    display: flex;
+    width: 100%;
+  }
+
+  .featured {
+    width: 50%;
+
+    h3 {
+      font-family: $sans;
+      font-size: 2.25rem;
+      line-height: 1.2;
+      margin: 3rem 0 1.5rem;
+    }
+  }
+
+  .alongside-featured {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+
+    > .box {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-landscape-max) {
+  .boxes {
+    .box {
+      width: 33.333333%;
+    }
+
+    .feature-section {
+      display: block;
+    }
+
+    .featured {
+      align-items: flex-start;
+      display: flex;
+      width: 100%;
+
+      .figure-wrapper {
+        flex-shrink: 0;
+        padding-right: ($box-spacing / 2);
+        width: 50%;
+
+        & + div {
+          padding-left: ($box-spacing / 2);
+        }
+      }
+
+      h3 {
+        margin-top: 0;
+      }
+    }
+
+    .alongside-featured {
+      width: 100%;
+
+      .box {
+        width: 33%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-portrait-max) {
+  .boxes {
+    .box {
+      width: 50%;
+    }
+
+    .featured {
+      display: block;
+      width: 100%;
+
+      .figure-wrapper {
+        flex-shrink: 0;
+        padding-right: 0;
+        width: 100%;
+
+        & + div {
+          padding-left: 0;
+          padding-top: 1.5rem;
+        }
+      }
+
+      h3 {
+        margin-top: 0;
+      }
+    }
+
+    .alongside-featured {
+      width: 100%;
+
+      .box {
+        width: 50%;
+      }
+    }
+  }
+}
