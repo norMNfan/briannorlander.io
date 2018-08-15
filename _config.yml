@@ -5,8 +5,6 @@ meta:
   twitter_image: "/img/brian.png"
   image: "/img/brian.png"
   google_analytics_id: "UA-119534242-1"
-  domain: "briannorlander.io"
-  root: "https://briannorlander.io"
 
 name: "Brian Norlander"
 markdown: redcarpt
