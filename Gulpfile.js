@@ -250,9 +250,10 @@ gulp.task('deploy', function(cb) {
 
 gulp.task('deploy:upload', function () {
   return gulp.src('')
-    .pipe(shell('rsync -avuzh _site/* dan:/srv/schlosser.io/public_html/'))
+    .pipe(shell('DEL /Q docs'))
+    .pipe(shell('XCOPY /E _site /Y docs'))
     .on('finish', function () {
-      process.stdout.write('Deployed to schlosser.io\n');
+      process.stdout.write('Deployed to docs\n');
     });
 });
 
