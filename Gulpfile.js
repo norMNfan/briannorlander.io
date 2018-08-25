@@ -34,7 +34,7 @@ var uglify = require('gulp-uglify');
 
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
-  jekyllBuild: '<span style="color: grey">Running: </span> $ jekyll build',
+  jekyllBuild: '<span style="color: grey">Running: </span> $ jekyll build --destination docs',
 };
 var responsiveSizes = [20, 400, 800, 1600];
 
@@ -62,7 +62,7 @@ gulp.task('scss:build', function () {
     }))
     .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./_site/css/'))
+    .pipe(gulp.dest('./docs/css/'))
     .pipe(reload({ stream: true }))
     .pipe(gulp.dest('./css/'));
 });
@@ -77,7 +77,7 @@ gulp.task('scss:optimized', function () {
     }))
     .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
     .pipe(cssnano({ compatibility: 'ie8' }))
-    .pipe(gulp.dest('./_site/css/'))
+    .pipe(gulp.dest('./docs/css/'))
     .pipe(reload({ stream: true }))
     .pipe(gulp.dest('./css/'));
 });
@@ -93,7 +93,7 @@ gulp.task('js:build', function () {
     .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./_site/js/'))
+    .pipe(gulp.dest('./docs/js/'))
     .pipe(reload({ stream: true }))
     .pipe(gulp.dest('./js/'));
 });
@@ -115,7 +115,7 @@ gulp.task('images', /*['responsive'],*/ function () {
   return gulp.src('./_img/**/*')
     .pipe(plumber())
     .pipe(changed(dest))
-    .pipe(gulp.dest('./_site/img/'))
+    .pipe(gulp.dest('./docs/img/'))
     .pipe(reload({ stream: true }))
     .pipe(gulp.dest(dest));
 });
@@ -129,7 +129,7 @@ gulp.task('images:optimized', /*['responsive'],*/ function () {
       progressive: true,
       multipass: true,
     })))
-    .pipe(gulp.dest('./_site/img/'))
+    .pipe(gulp.dest('./docs/img/'))
     .pipe(reload({ stream: true }))
     .pipe(gulp.dest('./img/'));
 });
@@ -228,7 +228,7 @@ gulp.task('jekyll', ['jekyll:build']);
 
 gulp.task('jekyll:build', function (cb) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn(jekyll, ['build', '--quiet', '--incremental'],
+  return cp.spawn(jekyll, ['build', '--quiet', '--incremental', '--destination', 'docs'],
     { stdio: 'inherit' }).on('close', cb);
 });
 
@@ -241,7 +241,7 @@ gulp.task('jekyll:rebuild', ['jekyll:build'], function () {
  ******************/
 
 gulp.task('clean', function (cb) {
-  return del(['./_site/', './css/', './js/', './img/'], cb);
+  return del(['./docs/', './css/', './js/', './img/'], cb);
 });
 
 gulp.task('deploy', function(cb) {
@@ -259,7 +259,7 @@ gulp.task('deploy:upload', function () {
 gulp.task('watch', function () {
   gulp.watch([
     './**/*.html',
-    '!./_site/**/*.html',
+    '!./docs/**/*.html',
     './_layouts/*.html',
     './_includes/*.html',
     './_drafts/*.html',
@@ -294,7 +294,7 @@ gulp.task('serve', ['build'], function () {
       scroll: false,
     },
     server: {
-      baseDir: '_site',
+      baseDir: 'docs',
     },
   });
 

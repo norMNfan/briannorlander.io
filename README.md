@@ -1,11 +1,11 @@
-[briannorlander.com](briannorlander.com)
+[briannorlander.com][briannorlander]
 ========================================
 
-[briannorlander.com](briannorlander.com) is built using [Gulp][gulp], [Jekyll][jekyll], and [SCSS][scss].
+[briannorlander.com][briannorlander] is built using [Gulp][gulp], [Jekyll][jekyll], and [SCSS][scss].
 
 - Use [Jekyll][jekyll] for content management and templating.
-- Use [ImageMagick][imagemagick] to resize images for responsive / retina loading.
-- Use [SCSS][scss] to keep our CSS organized into logical components.
+- Use [ImageMagick][imagemagick] to resize images for responsive image loading.
+- Use [SCSS][scss] to keep CSS organized into logical components.
 - Use [Autoprefixer][autoprefixer] to automatically insert browser prefixes where necessary to handle cross browser compatibility.
 - Use [Browsersync][browsersync] to automatically launch a development version of our website, reload the page whenever we change the HTML, and inject changes to CSS, JavaScript, and images with needing to reload.
 - Use [HTML Minifier][htmlmin], [CSSNano][cssnano], [UglifyJS][uglifyjs], and [ImageMin][imagemin] to compress and optimize our HTML, CSS, JavaScript, and images, respectively.
@@ -17,7 +17,7 @@ All with one command from the terminal:
 gulp serve
 ```
 
-### A Note on Directory Structure and Compilation
+### Directory Structure and Compilation
 
 Because Gulp and Jekyll to not play nice historically, static assets need to be generated into two different folders:
 
@@ -124,3 +124,4 @@ For use by Dan only.  Deploys to `https://schlosser.io/`, but won't do so withou
 [scss-lint]: https://github.com/brigade/scss-lint
 [jekyll]: https://jekyllrb.com/
 [imagemagick]: http://www.imagemagick.org/script/index.php
+[briannorlander]: http://briannorlander.com
