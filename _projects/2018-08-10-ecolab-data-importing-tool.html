@@ -1,0 +1,17 @@
+---
+title: Ecolab Data Importing Tool
+featured_image: projects/ecolab.jpg
+link: https://ecolab.com
+hero_style: none
+cta: Ecolab
+date: 2018-08-10
+---
+
+<p>While interning at Ecolab I was tasked with creating a tool that could import data from one Salesforce environment to another.</p>
+
+<p>I was able to create a tool that could dynamically import 21 interconnected Salesforce objects from one environment to another. The tool consisted of a very complex back-end and a front end intended for ease of use by non-technical people.</p>
+<p>The back-end was written in Apex, a Java-like Salesforce specific language. It sent requests to the Salesforce API, received JSON responses, and then turned those responses into Salesforce objects. Since the objects were all connected, mostly with parent child relationships, the order of insert was crucially important. To form new connections between objects identical to ones in the old environment a mapping of object ids was needed. All of the requests were made dynamically based on each objects meta data.</p>
+<p>The front end was built in Angular, using Bootstrap for styling. The page was built inside a Visualforce page in Salesforce. It featured a drop-down of all the Salesforce environments at Ecolab. Once an environment is selected, a drop-down will be populated with all of the account name in that environment. Once an account is selected and 'Load Data' is clicked all of the related information to that account will be loaded into the current environment.</p>
+<p>My tool ended up cutting down the data importing process time from 2 days to an average of less than one minute. My solution was able to import all of the test data and also was able to capture errors if they did occur. Overall this tool was a huge success for Ecolab and the eCommerce team that I was apart of.</p>
+
+<!-- This page needs Ecolab link, Salesforce picture, and links to specific technologies named -->

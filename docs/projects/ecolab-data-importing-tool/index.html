@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    
+    <title>Ecolab Data Importing Tool</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="While interning at Ecolab I was tasked with creating a tool that could import data from one Salesforce environment to another." />
+    <meta name="robots" content="NOODP, index, follow" />
+    <meta itemprop="name" content="Ecolab Data Importing Tool">
+    <meta itemprop="description" content="While interning at Ecolab I was tasked with creating a tool that could import data from one Salesforce environment to another.">
+    <meta itemprop="image" content="https://briannorlander.com/img/res/800/projects/ecolab.jpg">
+    <!-- Standard Icons -->
+    <link rel="icon" type="image/png" href="/img/favicon/united-states-of-america-flag-round-icon-16.ico"/>
+    
+
+    <!-- Chrome Theme Color -->
+    <meta name="theme-color" content="">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,700|Inconsolata:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/css/style.min.css" inline>
+    <!-- Google Analytics go here -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-119534242-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+
+    <div class="scrim"></div>
+    <header>
+    <div class="content">
+        
+        <h1 class="path">
+            <span class="component"><a href="/">~</a></span>
+            <span class="slash">/</span>
+            <span class="component"><a href="/">Brian Norlander</a></span>
+            
+            <span class="slash">/</span>
+            <span class="component capitalize"><a href="/projects/">projects</a></span>
+            
+            
+            <span class="slash">/</span>
+            <br class="mobile-only">
+            <span class="component"><a href="/projects/ecolab-data-importing-tool/">Ecolab Data Importing Tool</a></span>
+            
+        </h1>
+        
+    </div>
+</header>
+
+
+<div class="content">
+    <article>
+        
+        
+
+        <section class="text">
+    
+    <h3 class="timestamp">Published on August 10, 2018.</h3>
+    
+    <p>While interning at Ecolab I was tasked with creating a tool that could import data from one Salesforce environment to another.</p>
+
+<p>I was able to create a tool that could dynamically import 21 interconnected Salesforce objects from one environment to another. The tool consisted of a very complex back-end and a front end intended for ease of use by non-technical people.</p>
+<p>The back-end was written in Apex, a Java-like Salesforce specific language. It sent requests to the Salesforce API, received JSON responses, and then turned those responses into Salesforce objects. Since the objects were all connected, mostly with parent child relationships, the order of insert was crucially important. To form new connections between objects identical to ones in the old environment a mapping of object ids was needed. All of the requests were made dynamically based on each objects meta data.</p>
+<p>The front end was built in Angular, using Bootstrap for styling. The page was built inside a Visualforce page in Salesforce. It featured a drop-down of all the Salesforce environments at Ecolab. Once an environment is selected, a drop-down will be populated with all of the account name in that environment. Once an account is selected and 'Load Data' is clicked all of the related information to that account will be loaded into the current environment.</p>
+<p>My tool ended up cutting down the data importing process time from 2 days to an average of less than one minute. My solution was able to import all of the test data and also was able to capture errors if they did occur. Overall this tool was a huge success for Ecolab and the eCommerce team that I was apart of.</p>
+
+<!-- This page needs Ecolab link, Salesforce picture, and links to specific technologies named -->
+    <a href="https://ecolab.com" class="button cta" target="_blank">Ecolab</a>
+</section>
+
+    </article>
+</div>
+
+<div class="content">
+    
+    
+    
+    <section class="collection">
+    <h4 class="path">
+        <span class="slash">/</span>
+        <span class="component"><a href="/projects/">Projects</a></span>
+    </h4>
+    <div class="boxes">
+        
+
+        
+
+        
+        
+            
+            <div class="box ">
+    <div class="figure-wrapper">
+        
+            
+<a href="/projects/personal-website/" ">
+
+<figure class="progressive-image force-small"
+        data-small="/img/res/400/projects/personal_website.PNG"
+        data-medium="/img/res/800/projects/personal_website.PNG"
+        data-large="/img/res/1600/projects/personal_website.PNG"
+        data-raw="/img/res/raw/projects/personal_website.PNG">
+    <div class="aspect-ratio-holder"
+        style="padding-bottom: 67.20430107526882%"></div>
+    <img class="thumbnail"
+        src="/img/res/20/projects/personal_website.PNG"alt="">
+</figure>
+
+</a>
+
+
+        
+    </div>
+    <div>
+        <h3>
+            <a href="/projects/personal-website/">
+                Personal Website
+            </a>
+        </h3>
+        
+    </div>
+</div>
+
+            
+            <div class="box ">
+    <div class="figure-wrapper">
+        
+            
+<a href="/projects/song-sentiment-predictor/" ">
+
+<figure class="progressive-image force-small"
+        data-small="/img/res/400/projects/song_sentiment_predictor.jpg"
+        data-medium="/img/res/800/projects/song_sentiment_predictor.jpg"
+        data-large="/img/res/1600/projects/song_sentiment_predictor.jpg"
+        data-raw="/img/res/raw/projects/song_sentiment_predictor.jpg">
+    <div class="aspect-ratio-holder"
+        style="padding-bottom: 66.711140760507%"></div>
+    <img class="thumbnail"
+        src="/img/res/20/projects/song_sentiment_predictor.jpg"alt="">
+</figure>
+
+</a>
+
+
+        
+    </div>
+    <div>
+        <h3>
+            <a href="/projects/song-sentiment-predictor/">
+                Song Sentiment Predictor
+            </a>
+        </h3>
+        
+    </div>
+</div>
+
+            
+            
+        
+    </div>
+</section>
+
+</div>
+
+
+<script type="text/javascript" src="/js/progressive-image.js"></script>
+<script type="text/javascript">
+    var figures = document.getElementsByClassName('progressive-image');
+    for (var i = 0; i < figures.length; i++) {
+        new ProgressiveImage(figures[i]);
+    }
+</script>
+
+<footer>
+    <div class="content">
+        <div class="pages">
+            <h2 class="path">
+                <span class="slash">/</span>
+                <span class="component">
+                    <a href="/travel/">Travel</a>
+                </span>
+            </h2>
+            <h2 class="path">
+                <span class="slash">/</span>
+                <span class="component">
+                    <a href="/projects/">Projects</a>
+                </span>
+            </h2>
+        </div>
+        <div class="links">
+            
+            <h2 class="path ">
+                <span class="slash">/</span>
+                <span class="component">
+                    <a href="/img/resume.pdf">Resume</a>
+                </span>
+            </h2>
+            
+            <h2 class="path ">
+                <span class="slash">/</span>
+                <span class="component">
+                    <a href="https://github.com/norMNfan">GitHub</a>
+                </span>
+            </h2>
+            
+            <h2 class="path ">
+                <span class="slash">/</span>
+                <span class="component">
+                    <a href="https://www.linkedin.com/in/brian-norlander-1a7495160/">LinkedIn</a>
+                </span>
+            </h2>
+            
+            <h2 class="path ">
+                <span class="slash">/</span>
+                <span class="component">
+                    <a href="mailto:bpnorlander@gmail.com">Email</a>
+                </span>
+            </h2>
+            
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+</html>
