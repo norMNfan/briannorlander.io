@@ -1,8 +1,10 @@
 {
   "_NOTE": "This file is generated in gulpfile.js, in the responsive:metadata task.",
   "aspectRatios": {
+    "projects/ecolab.jpg": 1.5,
     "projects/song_sentiment_predictor.jpg": 1.499,
     "projects/personal_website.PNG": 1.488,
+    "travel/hongkong/victorias_peak.jpg": 1.499,
     "travel/germany/bern_bear.jpg": 0.667,
     "travel/germany/bern_bear_statue.jpg": 1.333,
     "travel/germany/bern_clock.jpg": 0.668,
