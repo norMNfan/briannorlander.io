@@ -1,0 +1,103 @@
+---
+title: Reddit Bot Classifier
+featured_image: projects/reddit_logo.jpg
+link: https://github.com/norMNfan/Reddit-Bot-Classifier
+hero_style: none
+cta: View Reddit Bot Classifier on GitHub
+date: 2018-12-03
+---
+
+<section class="text">
+	<h2><strong>Detecting bots on Reddit</strong></h2>
+</section>
+
+<section class="text">
+	<p><a href="/img/Reddit_Bot_Classifier.pdf">Official report</a></p>
+
+	<p>
+		In my last semester of university at the Hong Kong University of Science and Technology, under the supervision of Professor David Rossiter, I took an independent research course for credit where I was able to lead a semester long project.
+	</p>
+	<p>
+		The focus of my project was on detecting Russians bots on Reddit. I built a classifer that analyzed many thousands of posts, comments and user metadata from a list known <a href="https://www.reddit.com/r/announcements/comments/8bb85p/reddits_2017_transparency_report_and_suspect/">Russian accounts</a> as well as normal Reddit users. You can view the code I used in my project <a href="https://github.com/norMNfan/Reddit-Bot-Classifier">here</a>.
+	</p>
+	<p>
+		My paper is published on Prof. Rossiter's website <a href="http://www.cse.ust.hk/~rossiter/">here</a>.
+	</p>
+</section>
+
+<section class="text">
+	<h2>Collecting Data</h2>
+	<p>
+		The first step was to collect the user data from Reddit.
+	</p>
+	<p>
+		I had a list of 944 known Russian accounts from Reddit's 2017 <a href="https://www.reddit.com/r/announcements/comments/8bb85p/reddits_2017_transparency_report_and_suspect/">Transparency Report</a> that I later used as the ground truth for my classifiers. These accounts made posts and comments starting in approximately April of 2015 and some continued to make submissions as late as April 2018. I randomly selected, presumably, normal users and only extracted their submissions between the same period of time that the Russian accounts were active.
+	</p>
+	<p>
+		The scripts I wrote to extract the data were written in <a href="https://www.python.org/">python</a>. To collect user metadata I used python's popular API <a href="https://praw.readthedocs.io/en/latest/">praw</a>. To collect user posts and comments I used a 3rd party API called <a href="https://github.com/pushshift/api">PushShift</a>, which had no limits on how many comments and posts you could extract (praw was limited to 1000).
+	</p>
+	<p>
+		Finally I stored all of the data locally in Mongodb where I created the tables and data objects for User, Comment, Post, etc.
+	</p>
+</section>
+
+<section class="text">
+	<h2>Classification</h2>
+	<p>
+		Once I colleceted the user data I could then build a classifer.
+	</p>
+	<p>
+		I created classifiers on four attritbutes: post title, comment text, post subreddit, and comment subreddit. The comment text classification saw mixed results while all other methods were extremely accurate.
+	</p>
+	<p>
+		Detailed classification results are in my official report.
+	</p>
+	<p>
+		Click on any of the pictures below to view an interactive web page of my results.
+	</p>
+</section>
+
+<section>
+	<h5>
+		<strong>
+			<a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/post_title_chart.html">Post Title Visualization:</a> 
+		</strong>
+		This graph shows the words of a title post that are most strongly indicate whether the user is a bot or a normal user. The blue dots signify a normal user and the red dots signify a bot. The further to the right the word is the more characteristic it is to the word corpus.
+	</h5>
+	<br>
+	<a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/post_title_chart.html"><img src="/img/post_title_chart.PNG"></a>
+</section>
+
+<section>
+	<h5>
+		<strong>
+			<a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/comment_text_chart.html">Comment Text Visualization:</a> 
+		</strong>
+		This graph shows the words in the text of a comments that strongly indicate whether the user is a bot or a normal user. The blue dots signify a normal user and the red dots signify a bot. The further to the right the word is the more characteristic it is to the word corpus.
+	</h5>
+	<br>
+	<a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/comment_text_chart.html"><img src="/img/comment_body_chart.PNG"></a>
+</section>
+
+<section>
+	<h5>
+		<strong>
+			<a href="/img/Post_Subreddit_Visualization.html">Post Subreddit Visualization:</a> 
+		</strong>
+		This graph shows the subreddits that, when posted in, are likely to originate from a bot or a normal user. The blue dots are indicitive of a normal user and the red bots are indicitive of a bot. The further to the right the subreddit name is the more common it is in the corpus.
+	</h5>
+	<br>
+	<a href="/img/Post_Subreddit_Visualization.html"><img src="/img/post_sub_chart.PNG"></a>
+</section>
+
+<section>
+	<h5>
+		<strong>
+			<a href="/img/Comment_Subreddit_Visualization.html">Comment Subreddit Visualization:</a> 
+		</strong>
+		This graph shows the subreddits that, when commented in, are likely to originate from a bot or a normal user. The blue dots are indicitive of a normal user and the red bots are indicitive of a bot. The further to the right the subreddit name is the more common it is in the corpus.
+	</h5>
+	<br>
+	<a href="/img/Comment_Subreddit_Visualization.html"><img src="/img/comment_sub_chart.PNG"></a>
+</section>
+
