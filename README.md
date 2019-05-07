@@ -71,15 +71,11 @@ Resizes images in the `_img/res/raw` directory into `_img/res/<size>` directorie
 
 ### `gulp watch`
 
-Watchs for changes in local files and rebuilds parts of the site as necessary, into the `dist` directory.
+Watches for changes in local files and rebuilds parts of the site as necessary, into the `dist` directory.
 
 ### `gulp serve`
 
 Runs `gulp watch` in the background, and serves the `dist` directory at `localhost:3000` with automatic reloading using [Browsersync][browsersync].
-
-### `gulp deploy`
-
-For use by Dan only.  Deploys to `https://schlosser.io/`, but won't do so without proper authentication.
 
 ## Structure
 
