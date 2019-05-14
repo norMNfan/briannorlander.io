@@ -96,7 +96,7 @@
 	</p>
 
 	<p>
-		The focus of my project was on detecting Russians bots on Reddit. I built a classifier that analyzed many thousands of posts, comments and user metadata from a <a href="https://www.reddit.com/r/announcements/comments/8bb85p/reddits_2017_transparency_report_and_suspect/">list known Russian accounts</a>. The results of my project were very good with accuracy and precision often well over 0.80. (see my <a href="/img/Reddit_Bot_Classifier.pdf">Official report</a> for more detailed analysis)
+		The focus of my project was on detecting Russians bots on Reddit. I built a classifier that analyzed many thousands of posts, comments and user metadata from a <a href="https://www.reddit.com/r/announcements/comments/8bb85p/reddits_2017_transparency_report_and_suspect/">list known Russian accounts</a>. The results of my project were very good with accuracy and precision often well over 0.80 (see my <a href="/img/Reddit_Bot_Classifier.pdf">Official report</a> for more detailed analysis).
 	</p>
 	<p>
 		My paper is published on Prof. Rossiter's <a href="http://www.cse.ust.hk/~rossiter/">website</a>.
@@ -110,18 +110,18 @@
 	</p>
 
 	<p>
-		I had a list of 944 known Russian accounts from Reddit's 2017 <a href="https://www.reddit.com/r/announcements/comments/8bb85p/reddits_2017_transparency_report_and_suspect/">Transparency Report</a> that I later used as the ground truth for my classifiers. These accounts made posts and comments starting in approximately April of 2015 and some continued to make submissions as late as April 2018. I randomly selected normal user accounts from the same time period that the Russian accounts were active.
+		I had a list of 944 known Russian accounts from Reddit's 2017 <a href="https://www.reddit.com/r/announcements/comments/8bb85p/reddits_2017_transparency_report_and_suspect/">Transparency Report</a> that I later used as the ground truth for my classifiers. These accounts made posts and comments starting in approximately April of 2015 and some continued to make submissions as late as April 2018. I selected normal user accounts from the same time period that the Russian accounts were active.
 	</p> 
 
 	<p>
 		I extracted the following data for each user:
 		<ul>
 			<li><strong>username:</strong> Username of account</li>
-			<li><strong>cake day: </strong>Day of account creation</li>
+			<li><strong>created_utc: </strong>Day of account creation</li>
 			<li><strong>comments: </strong>All of the comments from the account. Each comment has body text and a timestamp.</li>
 			<li><strong>posts: </strong>All of the posts from the account. Each post has a title, description and a timestamp</li>
-			<li><strong>comment karma: </strong>The total number of upvotes for all of the comments from the user.</li>
-			<li><strong>link karma: </strong>The total number of upvotes for all of the posts from the user.</li>
+			<li><strong>comment_karma: </strong>The total number of upvotes for all of the comments from the user.</li>
+			<li><strong>link_karma: </strong>The total number of upvotes for all of the posts from the user.</li>
 		</ul>
 	</p>
 	<P>
@@ -152,7 +152,10 @@
 		Detailed classification results are in my <a href="/img/Reddit_Bot_Classifier.pdf">Official report</a>.
 	</p>
 	<p>
-		Click on any of the pictures below to view an interactive web page of my results. <strong>WARNING: Clicking on the interactive images below will load VERY slowly</strong>
+		Click on any of the pictures below to view an interactive web page of my results.
+	</p>
+	<p>
+		<strong>Clicking on the interactive images below will load VERY slowly</strong>
 	</p>
 </section>
 
@@ -201,7 +204,7 @@
 </section>
 
 <section class="text">
-	<h2>Time of Day Account Activity</h2>
+	<h2>Account Activity Analysis</h2>
 	<p>
 		These graphics show that the Reddit bot account were active during the business hours of Moscow while the normal Reddit bot accounts roughly resemble the time zone of America. America has by far the most Reddit accounts.
 	</p>
@@ -212,7 +215,9 @@
 		These two graphs show the time of the day that comments were made for the bot accounts and normal accounts. The time is based on the GMT timezone (London).
 	</p>
 	<img src="/img/normal_comment_hour.png">
+	<h5>Normal users</h5>
 	<img src="/img/bot_comment_hour.png">
+	<h5>Bot users</h5>
 </section>
 
 <section>
@@ -220,7 +225,9 @@
 		These two graphs show the time of the day that posts were made for the bot accounts and normal accounts. The time is based on the GMT timezone (London).
 	</p>
 	<img src="/img/normal_hours_post.png">
+	<h5>Normal users</h5>
 	<img src="/img/bot_hours_post.png">
+	<h5>Bot users</h5>
 </section>
 
 <section>
@@ -228,7 +235,9 @@
 		These two graphs show the time of the day that comments were made for the bot accounts and normal accounts. The time is based on the GMT timezone (London).
 	</p>
 	<img src="/img/normal_hour_of_the_day_account_created.png">
+	<h5>Normal users</h5>
 	<img src="/img/bot_hour_of_the_day_account_created.png">
+	<h5>Bot users</h5>
 </section>
 
 <section class="text">
@@ -243,7 +252,9 @@
 		These two graphs show the number of comments per account for bots and normal users.
 	</p>
 	<img src="/img/acount_number_of_comments.png">
+	<h5>Normal users</h5>
 	<img src="/img/bot_number_of_comments.png">
+	<h5>Bot users</h5>
 </section>
 
 <section>
@@ -251,7 +262,18 @@
 		These two graphs show the number of posts per account for bots and normal users.
 	</p>
 	<img src="/img/account_number_of_posts.png">
+	<h5>Normal users</h5>
 	<img src="/img/bot_number_of_posts.png">
+	<h5>Bot users</h5>
+</section>
+	    
+<section class="text">
+	<p>
+		In conclusion, it seems that the Russian bot accounts tend to conduct their activity during working hours of Moscow while most other typical Redditors activity alines with the timezone of America. Additionally, bot accounts appear to have a high amount of posts compared to comments when shown against normal users. These two trends are by no means enough to classify an account but they do provide additional meaningful information that could be added to an aggregate classifer later on.
+	</p>
+	<p>
+		In the future I would like to add an aggregate classifier that combined all of the methods previously described. I would also like to do deeper analysis on the actual content of the text such as sentiment analysis and trying to detect non-native english speaking accounts.
+	</p>
 </section>
 
 
