@@ -33,7 +33,7 @@ var uglify = require('gulp-uglify');
 
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
-  jekyllBuild: '<span style="color: grey">Running: </span> $ jekyll build --destination docs',
+  jekyllBuild: '<span style="color: grey">Running: </span> $ jekyll build --destination _site',
 };
 var responsiveSizes = [20, 400, 800, 1600];
 
@@ -59,7 +59,7 @@ gulp.task('scss:build', function() {
     }))
     .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./docs/css/'))
+    .pipe(gulp.dest('./_site/css/'))
     .pipe(reload({stream: true}))
     .pipe(gulp.dest('./css/'));
 });
@@ -76,7 +76,7 @@ gulp.task('scss:optimized', function() {
     }))
     .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
     .pipe(cssnano({compatibility: 'ie8'}))
-    .pipe(gulp.dest('./docs/css/'))
+    .pipe(gulp.dest('./_site/css/'))
     .pipe(reload({stream: true}))
     .pipe(gulp.dest('./css/'));
 });
@@ -90,7 +90,7 @@ gulp.task('js:build', function () {
     .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./docs/js/'))
+    .pipe(gulp.dest('./_site/js/'))
     .pipe(reload({ stream: true }))
     .pipe(gulp.dest('./js/'));
 });
@@ -114,7 +114,7 @@ gulp.task('images', /*['responsive'],*/ function () {
   return gulp.src('./_img/**/*')
     .pipe(plumber())
     .pipe(changed(dest))
-    .pipe(gulp.dest('./docs/img/'))
+    .pipe(gulp.dest('./_site/img/'))
     .pipe(reload({ stream: true }))
     .pipe(gulp.dest(dest));
 });
@@ -128,7 +128,7 @@ gulp.task('images:optimized', /*['responsive'],*/ function () {
       progressive: true,
       multipass: true,
     })))
-    .pipe(gulp.dest('./docs/img/'))
+    .pipe(gulp.dest('./_site/img/'))
     .pipe(reload({ stream: true }))
     .pipe(gulp.dest('./img/'));
 });
@@ -244,7 +244,7 @@ gulp.task('responsive',
 
 gulp.task('jekyll:build', function (cb) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn(jekyll, ['build', '--quiet', '--incremental', '--destination', 'docs'],
+  return cp.spawn(jekyll, ['build', '--quiet', '--incremental', '--destination', '_site'],
     { stdio: 'inherit' }).on('close', cb);
 });
 
@@ -260,13 +260,13 @@ gulp.task('jekyll', gulp.series('jekyll:build'));
  ******************/
 
 gulp.task('clean', function() {
-  return del(['./docs/', './css/', './js/', './img/']);
+  return del(['./_site/', './css/', './js/', './img/']);
 });
 
 gulp.task('watch', function() {
   gulp.watch([
     './**/*.html',
-    '!./docs/**/*.html',
+    '!./_site/**/*.html',
     './_layouts/*.html',
     './_includes/*.html',
     './_drafts/*.html',
@@ -282,16 +282,27 @@ gulp.task('build', gulp.series('clean', gulp.parallel('scss', /*'images',*/ 'js'
 
 gulp.task('build:optimized', gulp.series('clean', gulp.parallel('scss:optimized', /*'images',*/ 'js'), 'jekyll'));
 
-gulp.task('deploy:move', function() {
-  var src = './_site';
-  var dest = './docs';
-
-  return gulp.src(src)
-  .pipe(changed(src))
-  .pipe(gulp.dest(dest));
+gulp.task('moveSite', function() {
+  var dest = './docs/';
+  return gulp.src('./_site/**/*')
+    .pipe(plumber())
+    .pipe(changed(dest))
+    .pipe(gulp.dest('./docs/'))
+    .pipe(reload({ stream: true }))
+    .pipe(gulp.dest(dest));
 });
 
-gulp.task('deploy', gulp.series('build:optimized', 'deploy:move'));
+gulp.task('moveImg', function() {
+  var dest = './img/';
+  return gulp.src('./_img/**/*')
+    .pipe(plumber())
+    .pipe(changed(dest))
+    .pipe(gulp.dest('./docs/img/'))
+    .pipe(reload({ stream: true }))
+    .pipe(gulp.dest(dest));
+});
+
+gulp.task('deploy', gulp.series('build:optimized', 'moveSite', 'moveImg'));
 
 // use default task to launch Browsersync and watch JS files
 gulp.task('serve', gulp.series('build', function(done) {
@@ -304,7 +315,7 @@ gulp.task('serve', gulp.series('build', function(done) {
       scroll: false,
     },
     server: {
-      baseDir: 'docs',
+      baseDir: '_site',
       routes: {
         "/img": "_img",
       }
