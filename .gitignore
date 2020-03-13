@@ -19,3 +19,6 @@ _data/responsiveMetadata.json
 /img
 
 .sass-cache/*
+
+# Used for publishing to briannorlander.com
+CNAME
