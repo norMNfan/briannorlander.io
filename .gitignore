@@ -4,6 +4,7 @@ node_modules
 # Jekyll
 _site
 .jekyll-metadata
+.jekyll-cache
 
 # Responsive image output (resized images)
 _img/res/*
@@ -16,3 +17,5 @@ _data/responsiveMetadata.json
 /js
 /css
 /img
+
+.sass-cache
