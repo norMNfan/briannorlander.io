@@ -1,0 +1,68 @@
+---
+date: "2020-03-13"
+title: Ramen in Tokyo
+category: List
+featured_image: lists/ramen/IMG_20190930_191307.jpg
+hero_style: none
+redirect_from:
+  - /ramen/
+---
+<section class="text">
+    <p>
+        From the day I arrived in Japan I fell in love with ramen. There is no other food that has found its way into my heart, and my stomache, like ramen has.
+    </p>
+    <p>
+        When choosing which ramen shops to include on this list, I had a simple criteria. Would I recommend this shop to a Japanese friend? It is a common stereotype that foreigners will start drooling over any typical ramen shop and later proclaim "It's the best ramen I've ever had!" on Google reviews. While I agree many, if not most ramen shops are delicious, only some are worthy being put on a recommended list.
+    </p>
+    <p>
+        The ramen shops listed below won't be found in any "Top 10 best ramen shops in Tokyo", or other similar lists. They were made famous because of their ramen is loved by the locals who eat there regularly.
+    </p>
+</section>
+
+<section class="text">
+ {% for ramen in site.data.ramen %}
+    {% if ramen.inTokyo %}
+    <div class="ramen">
+      <div class="image">
+            {% include resimg.html src=ramen.img %}
+        </div>
+         <div class="copy">
+           <h3 id="{{ ramen.id }}">{{ ramen.shop }}</h3>
+            <h5>{{ ramen.japanese }} | <a target="_blank" href="https://google.com/maps?q={{ ramen.shop}}">Map</a></h5>
+            <p>{{ramen.description}}</p>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</section>
+
+<section class="text">
+    <h2>Honorable Mentions</h2>
+    <p>
+        Even though this article is titled 'Ramen in Tokyo' it felt wrong to not include some great ramen shops that I've been to in other parts of the country.
+    </p>
+</section>
+
+<section class="text">
+    {% for ramen in site.data.ramen %}
+    {% unless ramen.inTokyo %}
+    <div class="ramen">
+        <div class="image">
+            {% include resimg.html src=ramen.img %}
+        </div>
+        <div class="copy">
+            <h3 id="{{ ramen.id }}">{{ ramen.shop }}</h3>
+            <h5>{{ ramen.japanese }} | <a target="_blank" href="https://google.com/maps?q={{ ramen.shop}}">Map</a></h5>
+            <p>{{ramen.description}}</p>
+        </div>
+    </div>
+    {% endunless %}
+    {% endfor %}
+</section>
+
+<section class="text">
+    <h3>Recommendations?</h3>
+    <p>
+        I am always looking for new ramen shops to try. If you have recommendations email me at <a href="mailto:bpnorlander@gmail.com">bpnorlander@gmail.com</a>
+    </p>
+</section>

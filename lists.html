@@ -1,0 +1,11 @@
+---
+layout: collection
+collection: lists
+---
+
+<div class="boxes">
+    {% assign lists = site.lists %}
+    {% for list in lists %}
+    {% include box.html page=list %}
+    {% endfor %}
+</div>

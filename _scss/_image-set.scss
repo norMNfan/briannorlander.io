@@ -5,7 +5,17 @@ figure + .image-set {
 .image-set {
   margin: 3rem -0.75rem 0;
 
-  .large, .small {
+  &.inline {
+    margin-bottom: 3rem;
+  }
+
+  &.tight {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 30rem;
+  }
+
+  .large, .small, .xl {
     align-items: flex-start;
     display: flex;
     font-size: 0;
@@ -18,10 +28,44 @@ figure + .image-set {
     }
   }
 
+  .large figure {
+    width: 50%;
+  }
+
+  .small figure {
+    width: 33.333%;
+  }
+
+  .xl figure {
+    width: 100%;
+  }
+
   + h5 {
     margin-bottom: 4rem;
     padding: 0 2rem;
     text-align: center;
+  }
+
+  .figure-placeholder {
+    background-color: $light-gray;
+
+    a {
+      display: block;
+      height: 0;
+      padding-bottom: 75%;
+      position: relative;
+      width: 100%;
+    }
+
+    i {
+      background-position: center;
+      background-size: cover;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   }
 }
 

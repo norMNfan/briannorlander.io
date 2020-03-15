@@ -22,7 +22,10 @@ collections:
   travel:
     output: true
     permalink: /:collection/:title/
-  programming:
+  writing:
+    output: true
+    permalink: /:collection/:title/
+  lists:
     output: true
     permalink: /:collection/:title/
 
@@ -52,11 +55,15 @@ defaults:
   -
     scope:
       path: ""
-      type: programming
+      type: lists
     values:
-      layout: project
-      hero_style: full_bleed
-      related_posts: programming
+      layout: blog_post
+  -
+    scope:
+      path: ""
+      type: writing
+    values:
+      layout: blog_post
 
 exclude:
   - node_modules
@@ -66,3 +73,4 @@ exclude:
   - package.json
   - README.md
   - LICENSE.md
+  - docs

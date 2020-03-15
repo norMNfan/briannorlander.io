@@ -6,6 +6,7 @@ layout: post
     {% if page.date %}
     <h5 class="timestamp">Published on {{ page.date | date: '%B %d, %Y' }}.</h5>
     {% endif %}
+    <h2> {{ page.title }} </h2>
     {{ content }}
     {% if page.medium_url %}
     <a href="{{ page.medium_url }}" class="button cta" target="_blank">Continue on Medium</a>

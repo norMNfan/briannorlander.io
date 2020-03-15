@@ -16,8 +16,12 @@ $box-spacing: 3rem;
     .figure-wrapper {
       display: flex;
       flex-direction: column;
-      // flex: 1;
       justify-content: center;
+      transition: 0.3s ease all;
+
+      &:hover {
+        opacity: 0.8;
+      }
 
       figure {
         flex: 1;
@@ -29,6 +33,7 @@ $box-spacing: 3rem;
       flex: 0;
       padding-bottom: 50%;
       position: relative;
+      user-select: none;
       width: 100%;
 
       a {
@@ -76,7 +81,8 @@ $box-spacing: 3rem;
 
     h3 {
       font-family: $sans;
-      font-size: 2.25rem;
+      font-size: 2rem;
+      font-weight: $bold;
       line-height: 1.2;
       margin: 3rem 0 1.5rem;
     }

@@ -59,11 +59,16 @@ nav {
 
   section {
     margin: 8rem 0;
+
+    &.map {
+      margin: 0 -2rem -2rem;
+    }
   }
 
   .content {
     padding: 6rem 2rem;
   }
+
 
   .text.hero-image {
     margin: -4rem 0;

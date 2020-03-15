@@ -1,9 +1,9 @@
-.podcast {
+.ramen {
   display: flex;
   margin-bottom: 6rem;
 
   .image {
-    width: 8rem;
+    width: 20rem;
 
     p {
       margin-top: 0.5rem;
@@ -18,7 +18,7 @@
 }
 
 @media screen and (max-width: $phone-landscape-max) {
-  .podcast {
+  .ramen {
     display: block;
 
     .image {

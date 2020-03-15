@@ -17,8 +17,17 @@ body {
     opacity: 1;
     pointer-events: auto;
   }
+
+  &.show-image-links {
+    .progressive-image .self-link {
+      display: flex;
+    }
+  }
 }
 
+.progressive-image, .progressive-link {
+  user-select: none;
+}
 
 .progressive-image {
   overflow: hidden;
@@ -31,11 +40,76 @@ body {
     width: 100%;
   }
 
+  &.tight {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 30rem;
+  }
+
+  &.inline {
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
   &.with-viewer {
     cursor: zoom-in;
 
     &.is-open {
       cursor: zoom-out;
+
+      .self-link {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .self-link {
+    @extend %h5;
+    align-items: center;
+    bottom: 1rem;
+    display: none;
+    left: 1rem;
+    position: absolute;
+    transition: 0.3s ease opacity;
+    z-index: 100;
+
+    i {
+      align-items: center;
+      background-color: $white;
+      border-radius: 50%;
+      box-sizing: content-box;
+      display: flex;
+      padding: 0.675rem;
+    }
+
+    label {
+      background-color: $white;
+      color: $black;
+      font-size: 0.875rem;
+      left: 100%;
+      margin-left: 0.5rem;
+      opacity: 0;
+      padding: 0 0.5rem;
+      position: absolute;
+      transform: translate3d(0, 1rem, 0);
+      transition: 0.3s ease all;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      label {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    svg {
+      width: 0.75rem;
+
+      path {
+        fill: $black;
+      }
     }
   }
 
