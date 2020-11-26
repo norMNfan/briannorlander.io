@@ -77,6 +77,10 @@ Watches for changes in local files and rebuilds parts of the site as necessary, 
 
 Runs `gulp watch` in the background, and serves the `dist` directory at `localhost:3000` with automatic reloading using [Browsersync][browsersync].
 
+### `gulp deploy`
+
+Moves files built in `_site` to `docs` where they will be served in github pages. After this step, you can commit the changes of your built site and the changes will be deployed.
+
 ## Structure
 
 ```bash

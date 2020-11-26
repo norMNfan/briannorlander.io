@@ -282,6 +282,7 @@ gulp.task('build', gulp.series('clean', gulp.parallel('scss', /*'images',*/ 'js'
 
 gulp.task('build:optimized', gulp.series('clean', gulp.parallel('scss:optimized', /*'images',*/ 'js'), 'jekyll'));
 
+// Moves all the files needed to build the site EXCEPT images
 gulp.task('moveSite', function() {
   var dest = './docs/';
   return gulp.src('./_site/**/*')
@@ -292,6 +293,7 @@ gulp.task('moveSite', function() {
     .pipe(gulp.dest(dest));
 });
 
+// Moves images needed to build the site
 gulp.task('moveImg', function() {
   var dest = './img/';
   return gulp.src('./_img/**/*')
@@ -302,6 +304,7 @@ gulp.task('moveImg', function() {
     .pipe(gulp.dest(dest));
 });
 
+// Moves files from _site -> docs
 gulp.task('deploy', gulp.series('build:optimized', 'moveSite', 'moveImg'));
 
 // use default task to launch Browsersync and watch JS files
