@@ -30,6 +30,7 @@ var shell = require('gulp-shell');
 var sizeOf = require('image-size');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
+var watch = require('gulp-watch');
 
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
@@ -295,12 +296,10 @@ gulp.task('moveSite', function() {
 
 // Moves images needed to build the site
 gulp.task('moveImg', function() {
-  var dest = './img/';
-  return gulp.src('./_img/**/*')
-    .pipe(plumber())
-    .pipe(changed(dest))
-    .pipe(gulp.dest('./docs/img/'))
-    .pipe(reload({ stream: true }))
+  var source = './_img/**/*';
+  var dest = './docs/img/';
+  return gulp.src(source, {base: source})
+    .pipe(watch(source, {base: source}))
     .pipe(gulp.dest(dest));
 });
 
