@@ -1,6 +1,6 @@
 ---
 date: "2020-03-13"
-title: Ramen in Tokyo
+title: Ramen in Japan
 category: List
 featured_image: lists/ramen/IMG_20190930_191307.jpg
 hero_style: none
@@ -9,19 +9,51 @@ redirect_from:
 ---
 <section class="text">
     <p>
-        From the day I arrived in Japan I fell in love with ramen. There is no other food that has found its way into my heart, and my stomache, like ramen has.
+        "Let's go to Ichiran, it's the best ramen in Japan!" I heard on a crowded train as a smirk started to form across my face. I was on my way home coming back from crushing a bowl of Moyashi-men from Kiraku-ya, a legendary ramen shop in Shibuya.
     </p>
     <p>
-        When choosing which ramen shops to include on this list, I had a simple criteria. Would I recommend this shop to a Japanese friend? It is a common stereotype that foreigners will start drooling over any typical ramen shop and later proclaim "It's the best ramen I've ever had!" on Google reviews. While I agree many, if not most ramen shops are delicious, only some are worthy being put on a recommended list.
+        I will show you some of the best places I cherry picked from my experiences in Tokyo, my local area, and across Japan. I only added shops that will guarantee you a delicious ramen experience.
+    </p>
+</section>
+
+<section class="text">
+    <h2>Ramen 101</h2>
+    <p>
+        Ramen (ラーメン) is a noodle soup dish originally imported from China. The dish is cheap and widely available in nearly every corner of Japan, producing endless regional variations.
+    </p>
+    <h3>Styles of Ramen</h3>
+    <p>
+        <strong>Tonkotsu (豚骨, Pork Bone)</strong>
+        <br>
+        Particularly popular around Kyushu, tonkotsu ramen is made of pork bones which have been boiled down until they dissolve into a cloudy white broth. The thick, creamy soup is also often flavored with chicken broth and pork fat.
     </p>
     <p>
-        The ramen shops listed below won't be found in any "Top 10 best ramen shops in Tokyo", or other similar lists. They were made famous because of their ramen is loved by the locals who eat there regularly.
+        <strong>Shio (塩, Salt)</strong>
+        <br>
+        Shio ramen soup is a light, clear broth seasoned with salt. It is typically made from chicken broth, but may also be flavored with other meats such as pork.
+    </p>
+    <p>
+        <strong>Shoyu (醤油, Soy Sauce)</strong>
+        <br>
+        Shoyu ramen soup is a clear, brown broth flavored with soy sauce (shoyu). The soup is usually made of chicken broth but often contains other meats such as pork, beef or fish depending on the region. Shoyu ramen is the most common type of ramen and is usually what is served when the menu does not specify a specific type of soup. 
+    </p>
+    <p>
+        <strong>Miso (味噌, Soybean Paste)</strong>
+        <br>
+        Miso ramen soup is flavored with soybean paste (miso), resulting in a thick, brown soup with a rich, complex flavor. The style originated in Hokkaido where the long cold winters spurred the need for a heartier type of ramen soup, but it has spread to the point where it can be found pretty much anywhere in Japan.
+    </p>
+</section>
+
+<section class="text">
+    <h2>Bowls to Smash in Tokyo</h2>
+    <p>
+        If you are coming to Japan, chances are you will be coming to Tokyo. Although known for shopping and nightlife, many places such as Shibuya and Shinjuku have incredible ramen shops hidden amongst the bustling metropolis if you know where to look.
     </p>
 </section>
 
 <section class="text">
  {% for ramen in site.data.ramen %}
-    {% if ramen.inTokyo %}
+    {% if ramen.category == "Tokyo" %}
     <div class="ramen">
       <div class="image">
             {% include resimg.html src=ramen.img %}
@@ -37,15 +69,18 @@ redirect_from:
 </section>
 
 <section class="text">
-    <h2>Honorable Mentions</h2>
+    <h2>Local Favorites</h2>
     <p>
-        Even though this article is titled 'Ramen in Tokyo' it felt wrong to not include some great ramen shops that I've been to in other parts of the country.
+        While in Japan, I lived near <a href="https://goo.gl/maps/mqnBPYYG1F9dPvJWA">Mizonokuchi Station</a> and explored many ramen shops nearby in my local area.
+    </p>
+    <p>
+        You won't find any of these shops on any 'Top 10' lists. Nope, these shops are known by locals and frequented by salary men and students alike. They are not English friendly and won't have a fancy interior. Just cheap, delicious, classic ramen experiences.
     </p>
 </section>
 
 <section class="text">
     {% for ramen in site.data.ramen %}
-    {% unless ramen.inTokyo %}
+    {% if ramen.category == "Local" %}
     <div class="ramen">
         <div class="image">
             {% include resimg.html src=ramen.img %}
@@ -56,13 +91,30 @@ redirect_from:
             <p>{{ramen.description}}</p>
         </div>
     </div>
-    {% endunless %}
+    {% endif %}
     {% endfor %}
 </section>
 
 <section class="text">
-    <h3>Recommendations?</h3>
+    <h2>Outside of Tokyo</h2>
     <p>
-        I am always looking for new ramen shops to try. If you have recommendations email me at <a href="mailto:bpnorlander@gmail.com">bpnorlander@gmail.com</a>
+        While in Japan, I was able to explore many areas outside of Tokyo. Each time I went to a new city or region, my first priority was tasting the local variety of ramen. Whether it was Hokkaido, Kyushu, or anywhere in between, I tried many shops all over Japan. Below I compiled a list of my favorites.
     </p>
+</section>
+
+<section class="text">
+    {% for ramen in site.data.ramen %}
+    {% if ramen.category == "Other" %}
+    <div class="ramen">
+        <div class="image">
+            {% include resimg.html src=ramen.img %}
+        </div>
+        <div class="copy">
+            <h3 id="{{ ramen.id }}">{{ ramen.shop }}</h3>
+            <h5>{{ ramen.japanese }} | <a target="_blank" href="https://google.com/maps?q={{ ramen.shop}}">Map</a></h5>
+            <p>{{ramen.description}}</p>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
 </section>
