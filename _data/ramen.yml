@@ -3,14 +3,15 @@
   img: lists/ramen/IMG_20190930_191307.jpg
   shop: Menya Owada
   japanese: 麺屋 大和田
-  location: https://www.google.com/maps/place/%E9%BA%BA%E5%B1%8B+%E5%A4%A7%E5%92%8C%E7%94%B0/@35.6576832,139.6990956,17z/data=!4m5!3m4!1s0x60188b57b4014c4d:0x4a4ce2285aa7e74f!8m2!3d35.6576831!4d139.6990954
+  location: https://goo.gl/maps/XLyfiVKMt9oLbiMv6
+  style: Tonkotsu
   description: |
     Located in the heart of Shibuya, if you come here past midnight you might encounter
-    some <a href="https://www.instagram.com/shibuyameltdown">Shibuya Metldown</a>.
+    some <a href="https://www.instagram.com/shibuyameltdown">Shibuya Meltdown</a>.
     The dark broth of this ramen is very salty and very tasty.
     On top of the noodles is grilled pork, crispy nori and a yolky egg. 
     The inside of the shop is tiny, only able to seat 8 at a time, and usually filled with 
-    salary men and hip hop music. Experience the nightlife of Shibuya and ackowledge 
+    salary men and hip hop music. Experience the nightlife of Shibuya and acknowledge 
     that you cannot knock Jay Z's hustle.
   category: Tokyo
 
@@ -19,6 +20,7 @@
   shop: Kiraku
   japanese: 喜楽
   location: https://goo.gl/maps/3Wi28mnsaoy1YYqx9
+  style: Tokyo-style shoyu
   description: |
     One of the oldest ramen shops in Tokyo, this shop opened in 1952 and has since remained
     somewhat of a relic amongst the bustling metropolis nearby. Many of the customers
@@ -35,18 +37,20 @@
   shop: Chuka Soba SAKURAZAKA
   japanese: 中華ソバ 櫻坂
   location: https://goo.gl/maps/FpQvoBefhTJg7HY88
+  style: Tsukemen
   description: |
     Looking for tsukemen in Shibuya? Look no further. This ramen has an extremely
     tasty fish soup and soy sauce based broth. Everything from the noodle thickness to
     the massive charred pork pieces, the bowls at shop will leave you satisfied. 
-    An overall great shop. Enlgish is also available.
+    An overall great shop. English is also available.
   category: Tokyo
 
 - id: Kaminoge
   img: lists/ramen/IMG_20200311_185240.jpg
   shop: Ramen Jirou Kaminoge
   japanese: ラーメン二郎 上野毛店
-  location: https://www.google.com/maps/place/Ramen+Jirou+Kaminoge/@35.6071483,139.6392186,15z/data=!4m5!3m4!1s0x0:0x99b07714ed1700fb!8m2!3d35.6124306!4d139.6389878
+  location: https://goo.gl/maps/VuQAYe6X4SsHUHAbA
+  style: Jirou
   description: |
     If you are in search of oily, fatty jiro ramen that will make your gut burst, look no further.
     Starting at ¥700, the ramen bowls here are topped with thick cuts of pork,
@@ -61,7 +65,8 @@
   img: lists/ramen/IMG_20200125_053828.jpg
   shop: Ramen Nagi
   japanese: 濃厚鶏そば 晴壱
-  location: https://www.google.com/maps/place/Haru+Ichi/@35.6862707,139.712836,14.4z/data=!4m5!3m4!1s0x60188cee3e6b9cb7:0xdcec42f17b951cf5!8m2!3d35.6919839!4d139.7207522
+  location: https://goo.gl/maps/mFGN1LjPzZoRUkm48
+  style: Niboshi
   description: |
     Inside the famous Golden Gai bar district, Ramen Nagi is open 24 hours, which means this
     is the perfect place for a late night bowl of noodles. The fish broth Shoyu ramen
@@ -74,7 +79,8 @@
   img: lists/ramen/IMG_20190914_150101.jpg
   shop: Haru Ichi
   japanese: 濃厚鶏そば 晴壱
-  location: https://www.google.com/maps/place/Haru+Ichi/@35.6862707,139.712836,14.4z/data=!4m5!3m4!1s0x60188cee3e6b9cb7:0xdcec42f17b951cf5!8m2!3d35.6919839!4d139.7207522
+  location: https://goo.gl/maps/VpM6gx794jHBtbTPA
+  style: Chicken
   description: |
     Haru Ichi is a ramen noodle bowl with rich, creamy chicken broth topped with
     cuts of delicious chicken, green onion, radish and bamboo shoots served 
@@ -89,10 +95,11 @@
   shop: Hakata Kokumaro Ramen
   japanese: 博多濃麻呂 二子玉川店
   location: https://goo.gl/maps/AuEikNTQegqHQAsW9
+  style: Tonkotsu
   description: |
-    My #1 goto ramen shop. Very good Hakata ramen, one of the best and most authentic I have
+    My #1 go-to ramen shop. Very good Hakata ramen, one of the best and most authentic I have
     tried in Tokyo. Located near Futako Tamagawa Station. 
-    The shop is a little bit dirty, and inside there are only 8 seats, so sometimes you might
+    The shop is a little dirty, and inside there are only 8 seats, so sometimes you might
     have to wait in a short line. The broth is made from proper pork bones. 
     On multiple occasions I have seen an employee dumping bags of pork bones
     into the broth vat in the back of the shop, so you know it's legit. I recommend ordering a half
@@ -105,7 +112,8 @@
   img: lists/ramen/IMG_20200326_120430.jpg
   shop: Menya Kokoro
   japanese: 麺屋こころ 溝の口店 
-  location: https://www.google.com/maps/place/Menya+Kokoro/@35.5983458,139.577332,13208m/data=!3m1!1e3!4m8!1m2!2m1!1sMenya+Kokoro!3m4!1s0x6018f42668c87fbf:0x3186baf14fce46a6!8m2!3d35.5982724!4d139.6123515
+  location: https://goo.gl/maps/3ojTvzDFZDvXSqTx5
+  style: Mazesoba
   description: |
     While technically not ramen, I could not exclude this mazesoba shop from the list.
     A tapestry of seaweed flakes, green onions, chives, minced garlic, 
@@ -122,13 +130,14 @@
   shop: Namidabashi
   japanese: ラーメン 泪橋
   location: https://goo.gl/maps/WR5wmRo4MnKoVf6A7
+  style: Jirou
   description: |
     Literally called mammoth ramen, this ramen was inspired by Jiro ramen.
-    It is only open during lunch time from 11AM - 3PM and there is usually a line.
+    It is only open during lunchtime from 11AM - 3PM and there is usually a line.
     The combination of pork and seafood is exquisite. When your bowl is delivered the
     bonito flakes are still dancing on top of the thick cuts of pork. For only
     ¥800, the basic bowl is still a massive portion size. You can choose regular or spicy.
-    I also recommend to ask for extra garlic (nin niku).
+    I also recommend asking for extra garlic (nin niku).
   category: Local
 
 - id: Hamaboshi
@@ -136,6 +145,7 @@
   shop: Hamaboshi Mizonokuchi
   japanese: 濃厚煮干しそば 麺匠 濱星 溝の口店
   location: https://g.page/hamaboshimizonokuchi?share
+  style: Niboshi
   description: |
     Here you can eat rich niboshi (dried sardines) ramen. Although often smelly,
     the niboshi here is not so. The standard bowl
@@ -148,9 +158,10 @@
   img: lists/ramen/IMG_20200220_204955.jpg
   shop: Tsukemen Mizonokuchi
   japanese: 鶏と魚だしのつけめん哲 溝の口店
-  location: https://www.google.com/maps/place/%E9%B6%8F%E3%81%A8%E9%AD%9A%E3%81%A0%E3%81%97%E3%81%AE%E3%81%A4%E3%81%91%E3%82%81%E3%82%93%E5%93%B2+%E6%BA%9D%E3%81%AE%E5%8F%A3%E5%BA%97/@35.6005834,139.6093348,17z/data=!3m1!4b1!4m5!3m4!1s0x6018f42736dc6d5d:0xca8d857267c0b705!8m2!3d35.6005791!4d139.6115235
+  location: https://goo.gl/maps/RdmbW1QpXs6rUZ7p8
+  style: Tsukemen
   description: |
-    A local favorite, this shop gets very busy around lunch time. If you can endure the wait
+    A local favorite, this shop gets very busy around lunchtime. If you can endure the wait
     you will be rewarded with a simmering bowl of thick, oily, fishy tasting broth with slices
     of thick pork alongside a plate of noodles. On top of the noodles is some extra crispy fried
     chicken. This tsukemen will leave you feeling full, heavy and happy. 
@@ -160,14 +171,15 @@
   img: lists/ramen/IMG_20190922_172948.jpg
   shop: Nagahama ramen Hakatakko
   japanese: 長浜ラーメン 博多っ子
-  location: https://www.google.com/maps/place/Nagahama+ramen+Hakatakko/@35.6016571,139.6075958,206m/data=!3m2!1e3!4b1!4m5!3m4!1s0x6018f69e4a3e6a7f:0xf43bdb0efe2a4e4e!8m2!3d35.601656!4d139.608143
+  location: https://goo.gl/maps/kW37pHNMTMoBUuHt7
+  style: Tonkotsu
   description: |
     This unassuming shop serves up some delicious Hakata ramen at the very cheap price of ¥650.
     Open until 3AM and cash-only, you won't find gaijin tourists here or culinary experts, 
     just ordinary people who love ramen.
     The tonkotsu (pork bone) broth is not too thick or heavy, and features garlic and a hefty amount of green onion on top.
-    Taste and see the small white bubbles in nthe broth to know this tokotsu is legit.
-    Order a plate of extra fried pork and a large bottle of beer to feel like real salaryman.
+    Taste and see the small white bubbles in in the broth to know this tonkotsu is legit.
+    Order a plate of extra fried pork and a large bottle of beer to feel like real salary man.
   category: Local
 
 - id: Kirin
@@ -175,6 +187,7 @@
   shop: Ramen Kirin
   japanese: らーめん㐂輪
   location: https://goo.gl/maps/eV5j9YyoaNpZ1icz5
+  style: Yokohama (Ikekei)
   description: |
     This Yokohama Iekei style ramen is very thick, oily and fatty. Yokohama
     Iekei style ramen is one of the fastest growing styles of ramen in Japan 
@@ -191,8 +204,9 @@
   shop: Bannai Shokudo (Kitakata)
   japanese: 坂内食堂 本店
   location: https://goo.gl/maps/38ZctiFky1LNoQtv6
+  style: Kitakata
   description: |
-    Go here if you are looking for authetnic Kitakata ramen. They city of
+    Go here if you are looking for authentic Kitakata ramen. They city of
     Kitakata has the most ramen shops per capita in Japan, so you know I 
     had to go there. Alongside Sapporo ramen
     and Hakata ramen, Kitakata ramen is one of Japan's three major ramen noodle dynasties. 
@@ -208,6 +222,7 @@
   shop: Gokkei (Kyoto)
   japanese: 麺屋 極鶏
   location: https://g.page/gokkei?share
+  style: Chicken
   description: |
     Located in Ichijoji, Kyoto's storied ramen district, this shop is famous for
     its very thick broth, that is closer to gravy than broth. There is always
@@ -223,8 +238,9 @@
   shop: Kame Kame Soba (Okinawa)
   japanese: 亀かめそば
   location: https://goo.gl/maps/nfp5e4cAu8usruZt7
+  style: Okinawa Soba
   description: |
-    This shop is the defacto O.G. Okinawa Soba shop in Naha. With a very basic interrior, 
+    This shop is the de facto O.G. Okinawa Soba shop in Naha. With a very basic interior, 
     the inside of the shop feels a bit like a cafeteria. Straight noodles
     are topped with abundant amounts of Okinawa Agu pig. The broth is light
     and even slightly sweet. You can add extra mugwort (よもぎ) to your soba,
@@ -236,10 +252,11 @@
   shop: Koyokaku Tonkotsu Ramen (Saga)
   japanese: 豚骨ラーメン 幸陽閣
   location: https://goo.gl/maps/xHWAh1GziSc5idVZ9
+  style: Saga Tonkotsu
   description: |
     This Saga Ramen shop has a strong tonkotsu broth, chachu pork, and a raw egg
     put in it, Saga style. Only open for lunch 11AM - 3PM, it gets very busy soon
-    after opening. It's somewhat remote location in Saga might not be convinient
+    after opening. It's somewhat remote location in Saga might not be convenient
     for those without a vehicle. Try the local Saga ramen style if you are in the
     area or have a love for tonkotsu ramen.
   category: Other
@@ -249,6 +266,7 @@
   shop: Ajino Sapporo Oonishi (Aomori)
   japanese: 末廣ラーメン本舗 秋田駅前分店
   location: https://goo.gl/maps/ndUDthsunRFx3k226
+  style: Curry Milk Butter Miso
   description: |
     A unique style found in the northern most part of Honshu, this shops serves up
     hot bowls of curry milk butter ramen, Aomori's soul food. Getting its origins 
@@ -256,8 +274,8 @@
     opening in the 1970s, some high schoolers would add ketchup and mayonnaise to make
     their ramen more filling. This prompted the shop to create a miso, curry and milk
     combination. The soup is surprisingly mild. The thick, curly egg-yellow noodles, made 
-    locally, provide a more chewy texture. Topped with chashu, bean sprouts, bamboo
-    shoots and seweed, this  is extremely delicious and satisfying.
+    locally, provide a more chewier texture. Topped with chashu, bean sprouts, bamboo
+    shoots and seaweed, this  is extremely delicious and satisfying.
   category: Other
 
 - id: Akita
@@ -265,6 +283,7 @@
   shop: Suehiro Ramen (Akita)
   japanese: 味の札幌大西
   location: https://goo.gl/maps/Jf3pY6M9BQTfBoes5
+  style: Dark Shoyu
   description: |
     The recommended dish here is the Chuka Soba (中華そば) which is absolutely delicious.
     The bowl includes ramen noodles and a generous portion of pork topped with green onions
@@ -276,11 +295,12 @@
   img: lists/ramen/IMG_20191019_174605.jpg
   shop: Ramen Misoya (Nagano)
   japanese: らぁめん みそ家
-  location: https://www.google.com/maps/place/Ramen+Misoya/@36.6441396,138.1854589,17z/data=!3m1!4b1!4m8!1m2!2m1!1sRamen+Misoya!3m4!1s0x0:0x2dbb4556b25a404e!8m2!3d36.6441353!4d138.1876476
+  location: https://goo.gl/maps/e2DqUMR9xiUkwWwB9
+  style: Miso
   description: |
     Right next to Nagano Station, the menu is simple and the ramen is delicious.
     You have a choice between miso ramen and spicy miso ramen. Place your order and watch
     the chef fry the onions and carrots that will soon be in your bowl.
-    No surprises, just heart warming ramen, perfect after getting off the Shinkansen on your
+    No surprises, just heart-warming ramen, perfect after getting off the Shinkansen on your
     way to a ski resort.
   category: Other

@@ -1,0 +1,96 @@
+---
+date: "2020-12-04"
+title: Ramen in Japan
+category: List
+featured_image: lists/ramen/IMG_20201012_121219_featured.jpg
+hero_style: none
+redirect_from:
+  - /ramen/
+---
+<section class="text">
+    <p>
+        "Let's go to Ichiran, it's the best ramen in Japan!" I heard on a crowded train as a smirk started to form across my face. I was on my way home coming back from crushing a bowl of Moyashi-men from Kiraku-ya, a legendary ramen shop in Shibuya.
+    </p>
+    <p>
+        I will show you some of the best places I cherry picked from my experiences in Tokyo, my local area, and across Japan. I only added shops that will guarantee you a delicious ramen experience.
+    </p>
+</section>
+</section>
+
+<section class="text">
+    <h2>Bowls to Smash in Tokyo</h2>
+    <p>
+        If you are coming to Japan, chances are you will be coming to Tokyo. Although known for shopping and nightlife, many places such as Shibuya and Shinjuku have incredible ramen shops hidden amongst the bustling metropolis if you know where to look.
+    </p>
+</section>
+
+<section class="text">
+ {% for ramen in site.data.ramen %}
+    {% if ramen.category == "Tokyo" %}
+    <div class="ramen">
+      <div class="image">
+            {% include resimg.html src=ramen.img %}
+        </div>
+         <div class="copy">
+            <h3 id="{{ ramen.id }}">{{ ramen.shop }}</h3>
+            <h4>{{ramen.style}}</h4>
+            <h5>{{ ramen.japanese }} | <a target="_blank" href="https://google.com/maps?q={{ ramen.shop}}">Map</a></h5>
+            <p>{{ramen.description}}</p>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</section>
+
+<section class="text">
+    <h2>Local Favorites</h2>
+    <p>
+        While in Japan, I lived near <a href="https://goo.gl/maps/mqnBPYYG1F9dPvJWA">Mizonokuchi Station</a> and explored many ramen shops nearby in my local area.
+    </p>
+    <p>
+        You won't find any of these shops on any 'Top 10' lists. Nope, these shops are known by locals and frequented by salary men and students alike. They are not English friendly and won't have a fancy interior. Just cheap, delicious, classic ramen experiences.
+    </p>
+</section>
+
+<section class="text">
+    {% for ramen in site.data.ramen %}
+    {% if ramen.category == "Local" %}
+    <div class="ramen">
+        <div class="image">
+            {% include resimg.html src=ramen.img %}
+        </div>
+        <div class="copy">
+            <h3 id="{{ ramen.id }}">{{ ramen.shop }}</h3>
+            <h4>{{ramen.style}}</h4>
+            <h5>{{ ramen.japanese }} | <a target="_blank" href="https://google.com/maps?q={{ ramen.shop}}">Map</a></h5>
+            <p>{{ramen.description}}</p>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</section>
+
+<section class="text">
+    <h2>Outside of Tokyo</h2>
+    <p>
+        While in Japan, I was able to explore many areas outside of Tokyo. Each time I went to a new city or region, my first priority was tasting the local variety of ramen. Whether it was Hokkaido, Kyushu, or anywhere in between, I tried many shops all over Japan. Below I compiled a list of my favorites.
+    </p>
+</section>
+
+<section class="text">
+    {% for ramen in site.data.ramen %}
+    {% if ramen.category == "Other" %}
+    <div class="ramen">
+        <div class="image">
+            {% include resimg.html src=ramen.img %}
+        </div>
+        <div class="copy">
+            <h3 id="{{ ramen.id }}">{{ ramen.shop }}</h3>
+            <h4>{{ramen.style}}</h4>
+            <h5>{{ ramen.japanese }} | <a target="_blank" href="https://google.com/maps?q={{ ramen.shop}}">Map</a></h5>
+            <p>{{ramen.description}}</p>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</section>
