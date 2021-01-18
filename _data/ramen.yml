@@ -15,6 +15,21 @@
     that you cannot knock Jay Z's hustle.
   category: Tokyo
 
+- id: Hayasahi
+  img: lists/ramen/IMG_20201212_130321.jpg
+  shop: Hayashi Ramen
+  japanese: らーめん はやし
+  location: https://goo.gl/maps/2p9orBFJ3oTaRTii7
+  style: Niboshi
+  description: |
+    One of the most famous ramen shops in Shibuya, Hayashi Ramen is open Monday to Saturday from 11:30 to 15:30.
+    The menu reflects the attitudes of the shop owners, simple and to the point. Only 3 items: Ramen, Ajitama Ramen (soft boiled egg), and Yakibuta Ramen (extra roast, pork char siu). I opted for the Yakibuta Ramen.
+    The shop has many rules, and the shop owner will militantly enforce them. The rules include not taking too long to finish your bowl,
+    not taking pictures of the inside of the shop, and many more than you will be scolded for in Japanese if you break them.
+    Now to the ramen. The soup is milky and combines pork and fish flavors. The noodles are thin, flat, and cooked al dente so it gave a nice bite when you chewed through them.
+    Overall, it lives of to its fame, and it is no wonder why this is one of the most famous shops in Shibuya.
+  category: Tokyo
+
 - id: Kiraku
   img: lists/ramen/IMG_20201127_195545.jpg
   shop: Kiraku
@@ -88,6 +103,26 @@
     broth at the end is not.
     Within walking distance of Shinjuku station, this ramen shop is a popular lunch spot 
     for many working in the area.
+  category: Tokyo
+
+- id: Fūunji
+  img: lists/ramen/IMG_20201205_192945.jpg
+  shop: Fūunji
+  japanese: 風雲児
+  location: https://goo.gl/maps/4YCyNmTPDBQdTGe76
+  style: Tsukemen
+  description: |
+    Located in Shinjuku, Fūunji has been a very popular ramen shop since its inception in 2007.
+    I was hesitant to add this shop to the list, but ended up deciding it did belong here.
+    First off, the prices are relatively high compared to other bowls on this list. The special tsukemen
+    is 1000 yen, and the regular tsukemen is 800 yen. Although extra noodles are free (Oomori desu), it is clear
+    that the Shinjuku rent prices are reflected in the menu. Additionally, and admittedly it is a small gripe, 
+    customers in line are forced to stand behind customers sitting down already eating. This makes for a less
+    comfortable eating experience. It is not that pleasant to have people standing behind you staring at your food while you're eating.
+    As for the tsukemen, it was excellent. The master at this shop is extremely skilled and you will enjoy watching him prepare the noodles and run the shop while you wait.
+    The noodles are round with a wavy shape. The broth is extremely thick with bits of meat throughout and of course massive chunks of pork and a soft boiled egg inside.
+    However, when I received my broth it was already lukewarm. By the time I finished my bowl, it was all but cold.
+    Overall great tsukemen, but bceause of what was previously mentioned I had a few disappointments. 
   category: Tokyo
 
 - id: Futako
