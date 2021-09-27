@@ -17,6 +17,36 @@ All with one command from the terminal:
 gulp serve
 ```
 
+## Setup
+
+Install [yarn][yarn-install]. Then, install gulp:
+
+```bash
+yarn global add gulp  # May require `sudo`
+```
+
+Then, install [GraphicsMagick][graphicsmagick]. I do this via brew:
+
+```bash
+brew install graphicsmagick
+```
+
+You have done so successfully if you can run `gm -help` without any errors.  Finally, generate the responsive images. (This can take a while!)
+
+```bash
+gulp responsive
+```
+
+## Usage
+
+### Developing
+
+```bash
+yarn                   # One time
+bundle install         # One time
+gulp serve
+```
+
 ### Directory Structure and Compilation
 
 Because Gulp and Jekyll to not play nice historically, static assets need to be generated into two different folders:

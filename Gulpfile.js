@@ -1,15 +1,15 @@
 'use strict';
 
-var autoprefixer = require('gulp-autoprefixer');
+var autoprefixer = require("autoprefixer");
 var browserSync = require('browser-sync').create();
-var cache = require('gulp-cached');
+var cache = require('gulp-cache');
 var cp = require('child_process');
-var cssnano = require('gulp-cssnano');
+var cssnano = require('cssnano');
 var cache = require('gulp-cache');
 var changed = require('gulp-changed');
 var del = require('del');
 var es = require('event-stream');
-var foreach = require('gulp-foreach');
+var flatmap = require('gulp-flatmap');
 var fs = require('fs');
 var gm = require('gulp-gm');
 var gulp = require('gulp');
@@ -20,7 +20,8 @@ var os = require('os');
 var parallel = require('concurrent-transform');
 var path = require('path');
 var plumber = require('gulp-plumber');
-var print = require('gulp-print');
+var postcss = require("gulp-postcss");
+var print = require("gulp-print").default;
 var reload = browserSync.reload;
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
@@ -47,21 +48,30 @@ gulp.task('scss:lint', function() {
     .pipe(scsslint());
 });
 
-gulp.task('scss:build', function() {
-  return gulp.src('./_scss/style.scss')
+gulp.task("scss:build", function () {
+  var plugins = [
+    autoprefixer(["last 15 versions", "> 1%", "ie 8", "ie 7"], {
+      cascade: true,
+    }),
+    cssnano({ compatibility: "ie8" }),
+  ];
+  return gulp
+    .src("./_scss/style.scss")
     .pipe(plumber())
-    .pipe(rename({suffix: '.min'}))
+    .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.init())
-    .pipe(sass({
-      includePaths: ['scss'],
-      onError: browserSync.notify,
-      outputStyle: 'compressed',
-    }))
-    .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+    .pipe(
+      sass({
+        includePaths: ["scss"],
+        onError: browserSync.notify,
+        outputStyle: "compressed",
+      })
+    )
+    .pipe(postcss(plugins))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./docs/css/'))
-    .pipe(reload({stream: true}))
-    .pipe(gulp.dest('./css/'));
+    .pipe(gulp.dest("./_site/css/"))
+    .pipe(reload({ stream: true }))
+    .pipe(gulp.dest("./css/"));
 });
 
 gulp.task('scss', gulp.series('scss:lint', 'scss:build'));
@@ -157,27 +167,33 @@ gulp.task('responsive:resize', function(done) {
     destSuffix = '';
   }
 
-  es.merge(responsiveSizes.map(function(size) {
-    var dest = './_img/res/' + size;// + '/' + destSuffix;
-    console.log(dest);
-    return gulp.src('./_img/res/raw/' + srcSuffix)
-      .pipe(plumber())
-      .pipe(changed(dest))
-      .pipe(parallel(
-        gm(function(gmfile) {
-          if (gmfile.source.toLowerCase().endsWith("gif")) {
-            return gmfile; // Don't resize GIFs because...GraphicsMagick. :(
-          } else {
-            return gmfile.resize(null, size); // set height, variable width;
-          }
-        }),
-        os.cpus().length
-      ))
-      .pipe(print(function(filepath) {
-        return "Created: " + filepath.replace('/raw/', '/' + size + '/');
-      }))
-      .pipe(gulp.dest(dest));
-  }));
+  es.merge(
+    responsiveSizes.map(function (size) {
+      var dest = "./_img/res/" + size + "/" + destSuffix;
+      return gulp
+        .src("./_img/res/raw/" + srcSuffix)
+        .pipe(plumber())
+        .pipe(changed(dest))
+        .pipe(
+          parallel(
+            gm(function (gmfile) {
+              if (gmfile.source.toLowerCase().endsWith("gif")) {
+                return gmfile; // Don't resize GIFs because...GraphicsMagick. :(
+              } else {
+                return gmfile.resize(null, size); // set height, variable width;
+              }
+            }),
+            os.cpus().length
+          )
+        )
+        .pipe(
+          print(function (filepath) {
+            return "Created: " + filepath.replace("/raw/", "/" + size + "/");
+          })
+        )
+        .pipe(gulp.dest(dest));
+    })
+  );
 
   done();
 });
@@ -191,7 +207,7 @@ gulp.task('responsive:metadata', function() {
   };
   var travelPhotos = {};
   return gulp.src('./_img/res/raw/**/*.{jpg,JPG,png,PNG,jpeg,JPEG,gif,GIF}')
-    .pipe(foreach(function(stream, file) {
+    .pipe(flatmap(function(stream, file) {
       fs.readFile(file.path, function(err, buf) {
         if (err) {
           process.stdout.write(err);
