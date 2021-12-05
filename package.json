@@ -1,12 +1,12 @@
 {
-  "name": "",
+  "name": "briannorlander.io",
   "version": "0.0.1",
   "description": "",
   "license": "MIT",
   "scripts": {},
   "devDependencies": {
-    "autoprefixer": "^9.7.4",
-    "browser-sync": "^2.26.3",
+    "autoprefixer": "^10.4.0",
+    "browser-sync": "^2.27.2",
     "child_process": "^1.0.2",
     "concurrent-transform": "^1.0.0",
     "cssnano": "^4.1.10",
