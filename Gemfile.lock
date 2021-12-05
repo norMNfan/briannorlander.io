@@ -98,6 +98,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  jekyll (~> 4.0)
   jekyll-press
   jekyll-redirect-from
   scss_lint
