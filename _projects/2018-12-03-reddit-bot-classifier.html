@@ -8,198 +8,197 @@ date: 2018-12-03
 ---
 
 <section class="text">
-	<h2><strong>Detecting Bots on Reddit</strong></h2>
+    <h2><strong>Detecting Bots on Reddit</strong></h2>
 </section>
 
 <section class="text">
 
-	<h2>Overview</h2>
+    <h2>Overview</h2>
 
-	<p>Here is my <a href="/img/Reddit_Bot_Classifier.pdf">Official report</a></p>
-	<p>Here is my code on <a href="https://github.com/norMNfan/Reddit-Bot-Classifier">Github</a></p>
+    <p>Here is my <a href="/img/Reddit_Bot_Classifier.pdf">Official report</a></p>
+    <p>Here is my code on <a href="https://github.com/norMNfan/Reddit-Bot-Classifier">Github</a></p>
 
-	<p>
-		In my last semester of university at the Hong Kong University of Science and Technology, under the supervision of Professor David Rossiter, I took an independent research course for credit where I was able to lead a semester long solo project.
-	</p>
+    <p>
+        In my last semester of university at the Hong Kong University of Science and Technology, under the supervision of Professor David Rossiter, I took an independent research course for credit where I was able to lead a semester long solo project.
+    </p>
 
-	<p>
-		The focus of my project was on detecting Russians bots on Reddit. I built a classifier that analyzed many thousands of posts, comments and user metadata from a <a href="https://www.reddit.com/r/announcements/comments/8bb85p/reddits_2017_transparency_report_and_suspect/">list known Russian accounts</a>. The results of my project were very good with accuracy and precision often well over 0.80 (see my <a href="/img/Reddit_Bot_Classifier.pdf">Official report</a> for more detailed analysis).
-	</p>
-	<p>
-		My paper is published on Prof. Rossiter's <a href="http://www.cse.ust.hk/~rossiter/">website</a>.
-	</p>
+    <p>
+        The focus of my project was on detecting Russians bots on Reddit. I built a classifier that analyzed many thousands of posts, comments and user metadata from a <a href="https://www.reddit.com/r/announcements/comments/8bb85p/reddits_2017_transparency_report_and_suspect/">list known Russian accounts</a>. The results of my project were very good with accuracy and precision often well over 0.80 (see my <a href="/img/Reddit_Bot_Classifier.pdf">Official report</a> for more detailed analysis).
+    </p>
+    <p>
+        My paper is published on Prof. Rossiter's <a href="http://www.cse.ust.hk/~rossiter/">website</a>.
+    </p>
 </section>
 
 <section class="text">
-	<h2>Collecting Data</h2>
-	<p>
-		The first step was to collect the user data from Reddit.
-	</p>
+    <h2>Collecting Data</h2>
+    <p>
+        The first step was to collect the user data from Reddit.
+    </p>
 
-	<p>
-		I had a list of 944 known Russian accounts from Reddit's 2017 <a href="https://www.reddit.com/r/announcements/comments/8bb85p/reddits_2017_transparency_report_and_suspect/">Transparency Report</a> that I later used as the ground truth for my classifiers. These accounts made posts and comments starting in approximately April of 2015 and some continued to make submissions as late as April 2018. I selected normal user accounts from the same time period that the Russian accounts were active.
-	</p> 
+    <p>
+        I had a list of 944 known Russian accounts from Reddit's 2017 <a href="https://www.reddit.com/r/announcements/comments/8bb85p/reddits_2017_transparency_report_and_suspect/">Transparency Report</a> that I later used as the ground truth for my classifiers. These accounts made posts and comments starting in approximately April of 2015 and some continued to make submissions as late as April 2018. I selected normal user accounts from the same time period that the Russian accounts were active.
+    </p>
 
-	<p>
-		I extracted the following data for each user:
-		<ul>
-			<li><strong>username:</strong> Username of account</li>
-			<li><strong>created_utc: </strong>Day of account creation</li>
-			<li><strong>comments: </strong>All of the comments from the account. Each comment has body text and a timestamp.</li>
-			<li><strong>posts: </strong>All of the posts from the account. Each post has a title, description and a timestamp</li>
-			<li><strong>comment_karma: </strong>The total number of upvotes for all of the comments from the user.</li>
-			<li><strong>link_karma: </strong>The total number of upvotes for all of the posts from the user.</li>
-		</ul>
-	</p>
-	<P>
-		<img src="/img/database_design.PNG">
-	</P>
+    <p>
+        I extracted the following data for each user:
+    <ul>
+        <li><strong>username:</strong> Username of account</li>
+        <li><strong>created_utc: </strong>Day of account creation</li>
+        <li><strong>comments: </strong>All of the comments from the account. Each comment has body text and a timestamp.</li>
+        <li><strong>posts: </strong>All of the posts from the account. Each post has a title, description and a timestamp</li>
+        <li><strong>comment_karma: </strong>The total number of upvotes for all of the comments from the user.</li>
+        <li><strong>link_karma: </strong>The total number of upvotes for all of the posts from the user.</li>
+    </ul>
+    </p>
+    <P>
+        <img src="/img/database_design.PNG">
+    </P>
 
-	<p>
-		The scripts I wrote to extract the data were written in <a href="https://www.python.org/">python</a>. To collect user metadata I used python's popular API <a href="https://praw.readthedocs.io/en/latest/">praw</a>. To collect user posts and comments I used a 3rd party API called <a href="https://github.com/pushshift/api">PushShift</a>, which had no limits on how many comments and posts you could extract (praw was limited to 1000).
-	</p>
-	<p>
-		Finally, I stored all of the data locally in <a href="https://www.mongodb.com/">Mongodb</a> where I created the tables and data objects for User, Comment, Post, etc.
-	</p>
+    <p>
+        The scripts I wrote to extract the data were written in <a href="https://www.python.org/">python</a>. To collect user metadata I used python's popular API <a href="https://praw.readthedocs.io/en/latest/">praw</a>. To collect user posts and comments I used a 3rd party API called <a href="https://github.com/pushshift/api">PushShift</a>, which had no limits on how many comments and posts you could extract (praw was limited to 1000).
+    </p>
+    <p>
+        Finally, I stored all of the data locally in <a href="https://www.mongodb.com/">Mongodb</a> where I created the tables and data objects for User, Comment, Post, etc.
+    </p>
 
-	<P>
-		<img src="/img/Pipeline.PNG">
-	</P>
+    <P>
+        <img src="/img/Pipeline.PNG">
+    </P>
 </section>
 
 <section class="text">
-	<h2>Classification</h2>
-	<p>
-		Once I collected the user data I could then build a classifier.
-	</p>
-	<p>
-		I created classifiers on four attributes: post title, comment text, post subreddit, and comment subreddit. The comment text classification saw mixed results while all other methods had very high accuracy and precision.
-	</p>
-	<p>
-		Detailed classification results are in my <a href="/img/Reddit_Bot_Classifier.pdf">Official report</a>.
-	</p>
-	<p>
-		Click on any of the pictures below to view an interactive web page of my results.
-	</p>
-	<p>
-		<strong>Clicking on the interactive images below will load VERY slowly</strong>
-	</p>
+    <h2>Classification</h2>
+    <p>
+        Once I collected the user data I could then build a classifier.
+    </p>
+    <p>
+        I created classifiers on four attributes: post title, comment text, post subreddit, and comment subreddit. The comment text classification saw mixed results while all other methods had very high accuracy and precision.
+    </p>
+    <p>
+        Detailed classification results are in my <a href="/img/Reddit_Bot_Classifier.pdf">Official report</a>.
+    </p>
+    <p>
+        Click on any of the pictures below to view an interactive web page of my results.
+    </p>
+    <p>
+        <strong>Clicking on the interactive images below will load VERY slowly</strong>
+    </p>
 </section>
 
 <section>
-	<h5>
-		<strong>
-			<a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/post_title_chart.html">Post Title Visualization:</a> 
-		</strong>
-		This graph shows the words of a title post that most strongly indicate whether the user is a bot or a normal user. The blue dots signify a normal user and the red dots signify a bot. The further to the right the word is the more characteristic it is to the word corpus.
-	</h5>
-	<br>
-	<a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/post_title_chart.html"><img src="/img/post_title_chart.PNG"></a>
+    <h5>
+        <strong>
+            <a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/post_title_chart.html">Post Title Visualization:</a>
+        </strong>
+        This graph shows the words of a title post that most strongly indicate whether the user is a bot or a normal user. The blue dots signify a normal user and the red dots signify a bot. The further to the right the word is the more characteristic it is to the word corpus.
+    </h5>
+    <br>
+    <a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/post_title_chart.html"><img src="/img/post_title_chart.PNG"></a>
 </section>
 
 <section>
-	<h5>
-		<strong>
-			<a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/comment_text_chart.html">Comment Text Visualization:</a> 
-		</strong>
-		This graph shows the words in the text of a comment that most strongly indicate whether the user is a bot or a normal user. The blue dots signify a normal user and the red dots signify a bot. The further to the right the word is the more characteristic it is to the word corpus.
-	</h5>
-	<br>
-	<a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/comment_text_chart.html"><img src="/img/comment_body_chart.PNG"></a>
+    <h5>
+        <strong>
+            <a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/comment_text_chart.html">Comment Text Visualization:</a>
+        </strong>
+        This graph shows the words in the text of a comment that most strongly indicate whether the user is a bot or a normal user. The blue dots signify a normal user and the red dots signify a bot. The further to the right the word is the more characteristic it is to the word corpus.
+    </h5>
+    <br>
+    <a href="http://www.cse.ust.hk/~rossiter/independent_studies_projects/classifier_reddit_bots/comment_text_chart.html"><img src="/img/comment_body_chart.PNG"></a>
 </section>
 
 <section>
-	<h5>
-		<strong>
-			<a href="/img/Post_Subreddit_Visualization.html">Post Subreddit Visualization:</a> 
-		</strong>
-		This graph shows the subreddits that, when posted in, are likely to originate from a bot or a normal user. The blue dots are indicative of a normal user and the red bots are indicative of a bot. The further to the right the subreddit name is the more common it is in the corpus.
-	</h5>
-	<br>
-	<a href="/img/Post_Subreddit_Visualization.html"><img src="/img/post_sub_chart.PNG"></a>
+    <h5>
+        <strong>
+            <a href="/img/Post_Subreddit_Visualization.html">Post Subreddit Visualization:</a>
+        </strong>
+        This graph shows the subreddits that, when posted in, are likely to originate from a bot or a normal user. The blue dots are indicative of a normal user and the red bots are indicative of a bot. The further to the right the subreddit name is the more common it is in the corpus.
+    </h5>
+    <br>
+    <a href="/img/Post_Subreddit_Visualization.html"><img src="/img/post_sub_chart.PNG"></a>
 </section>
 
 <section>
-	<h5>
-		<strong>
-			<a href="/img/Comment_Subreddit_Visualization.html">Comment Subreddit Visualization:</a> 
-		</strong>
-		This graph shows the subreddits that, when commented in, are likely to originate from a bot or a normal user. The blue dots are indicative of a normal user and the red bots are indicative of a bot. The further to the right the subreddit name is the more common it is in the corpus.
-	</h5>
-	<br>
-	<a href="/img/Comment_Subreddit_Visualization.html"><img src="/img/comment_sub_chart.PNG"></a>
+    <h5>
+        <strong>
+            <a href="/img/Comment_Subreddit_Visualization.html">Comment Subreddit Visualization:</a>
+        </strong>
+        This graph shows the subreddits that, when commented in, are likely to originate from a bot or a normal user. The blue dots are indicative of a normal user and the red bots are indicative of a bot. The further to the right the subreddit name is the more common it is in the corpus.
+    </h5>
+    <br>
+    <a href="/img/Comment_Subreddit_Visualization.html"><img src="/img/comment_sub_chart.PNG"></a>
 </section>
 
 <section class="text">
-	<h2>Account Activity Analysis</h2>
-	<p>
-		These graphics show that the Reddit bot accounts were active during the business hours of Moscow while the normal Reddit bot accounts roughly resemble the time zone of America. America has by far the most Reddit accounts.
-	</p>
+    <h2>Account Activity Analysis</h2>
+    <p>
+        These graphics show that the Reddit bot accounts were active during the business hours of Moscow while the normal Reddit bot accounts roughly resemble the time zone of America. America has by far the most Reddit accounts.
+    </p>
 </section>
 
 <section>
-	<p>
-		These two graphs show the time of the day that comments were made for the bot accounts and normal accounts. The time is based on the GMT timezone (London).
-	</p>
-	<img src="/img/normal_comment_hour.png">
-	<h5 style="text-align:center">Normal users</h5>
-	<img src="/img/bot_comment_hour.png">
-	<h5 style="text-align:center">Bot users</h5>
+    <p>
+        These two graphs show the time of the day that comments were made for the bot accounts and normal accounts. The time is based on the GMT timezone (London).
+    </p>
+    <img src="/img/normal_comment_hour.png">
+    <h5 style="text-align:center">Normal users</h5>
+    <img src="/img/bot_comment_hour.png">
+    <h5 style="text-align:center">Bot users</h5>
 </section>
 
 <section>
-	<p>
-		These two graphs show the time of the day that posts were made for the bot accounts and normal accounts. The time is based on the GMT timezone (London).
-	</p>
-	<img src="/img/normal_hours_post.png">
-	<h5 style="text-align:center">Normal users</h5>
-	<img src="/img/bot_hours_post.png">
-	<h5 style="text-align:center">Bot users</h5>
+    <p>
+        These two graphs show the time of the day that posts were made for the bot accounts and normal accounts. The time is based on the GMT timezone (London).
+    </p>
+    <img src="/img/normal_hours_post.png">
+    <h5 style="text-align:center">Normal users</h5>
+    <img src="/img/bot_hours_post.png">
+    <h5 style="text-align:center">Bot users</h5>
 </section>
 
 <section>
-	<p>
-		These two graphs show the time of the day that comments were made for the bot accounts and normal accounts. The time is based on the GMT timezone (London).
-	</p>
-	<img src="/img/normal_hour_of_the_day_account_created.png">
-	<h5 style="text-align:center">Normal users</h5>
-	<img src="/img/bot_hour_of_the_day_account_created.png">
-	<h5 style="text-align:center">Bot users</h5>
+    <p>
+        These two graphs show the time of the day that comments were made for the bot accounts and normal accounts. The time is based on the GMT timezone (London).
+    </p>
+    <img src="/img/normal_hour_of_the_day_account_created.png">
+    <h5 style="text-align:center">Normal users</h5>
+    <img src="/img/bot_hour_of_the_day_account_created.png">
+    <h5 style="text-align:center">Bot users</h5>
 </section>
 
 <section class="text">
-	<h2>Number of Comments and Posts Per Account</h2>
-	<p>
-		These graphics show that the Reddit bot accounts typically have a higher number of posts compared to comments.
-	</p>
+    <h2>Number of Comments and Posts Per Account</h2>
+    <p>
+        These graphics show that the Reddit bot accounts typically have a higher number of posts compared to comments.
+    </p>
 </section>
 
 <section>
-	<p>
-		These two graphs show the number of comments per account for bots and normal users.
-	</p>
-	<img src="/img/acount_number_of_comments.png">
-	<h5 style="text-align:center">Normal users</h5>
-	<img src="/img/bot_number_of_comments.png">
-	<h5 style="text-align:center">Bot users</h5>
+    <p>
+        These two graphs show the number of comments per account for bots and normal users.
+    </p>
+    <img src="/img/acount_number_of_comments.png">
+    <h5 style="text-align:center">Normal users</h5>
+    <img src="/img/bot_number_of_comments.png">
+    <h5 style="text-align:center">Bot users</h5>
 </section>
 
 <section>
-	<p>
-		These two graphs show the number of posts per account for bots and normal users.
-	</p>
-	<img src="/img/account_number_of_posts.png">
-	<h5 style="text-align:center">Normal users</h5>
-	<img src="/img/bot_number_of_posts.png">
-	<h5 style="text-align:center">Bot users</h5>
+    <p>
+        These two graphs show the number of posts per account for bots and normal users.
+    </p>
+    <img src="/img/account_number_of_posts.png">
+    <h5 style="text-align:center">Normal users</h5>
+    <img src="/img/bot_number_of_posts.png">
+    <h5 style="text-align:center">Bot users</h5>
 </section>
 
 <section class="text">
-	<p>
-	In conclusion, it seems that the Russian bot accounts tend to conduct their activity during working hours of Moscow while most other typical Redditors activity alines with the timezone of America. Additionally, bot accounts appear to have a high amount of posts compared to comments when shown against normal users. These two trends are by no means enough to classify an account but they do provide additional meaningful information that could be added to an aggregate classifier later on.
-	</p>
-	<p>
-		In the future I would like to add an aggregate classifier that combined all of the methods previously described. I would also like to do deeper analysis on the actual content of the text such as sentiment analysis and trying to detect non-native English speaking accounts.
-	</p>
+    <p>
+        In conclusion, it seems that the Russian bot accounts tend to conduct their activity during working hours of Moscow while most other typical Redditors activity alines with the timezone of America. Additionally, bot accounts appear to have a high amount of posts compared to comments when shown against normal users. These two trends are by no means enough to classify an account but they do provide additional meaningful information that could be added to an aggregate classifier later on.
+    </p>
+    <p>
+        In the future I would like to add an aggregate classifier that combined all of the methods previously described. I would also like to do deeper analysis on the actual content of the text such as sentiment analysis and trying to detect non-native English speaking accounts.
+    </p>
 </section>
-

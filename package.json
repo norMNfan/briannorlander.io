@@ -20,6 +20,7 @@
     "gulp-format-html": "^1.2.5",
     "gulp-gm": "0.0.9",
     "gulp-imagemin": "^5.0.3",
+    "gulp-jsbeautifier": "^3.0.1",
     "gulp-jshint": "^2.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "8.0.0",

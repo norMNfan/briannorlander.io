@@ -5,7 +5,7 @@ category: List
 featured_image: lists/ramen/IMG_20201012_121219_featured.jpg
 hero_style: none
 redirect_from:
-  - /ramen/
+- /ramen/
 ---
 <section class="text">
     <p>
@@ -25,13 +25,13 @@ redirect_from:
 </section>
 
 <section class="text">
- {% for ramen in site.data.ramen %}
+    {% for ramen in site.data.ramen %}
     {% if ramen.category == "Tokyo" %}
     <div class="ramen">
-      <div class="image">
+        <div class="image">
             {% include resimg.html src=ramen.img %}
         </div>
-         <div class="copy">
+        <div class="copy">
             <h3 id="{{ ramen.id }}">{{ ramen.shop }}</h3>
             <h4>{{ramen.style}}</h4>
             <h5>{{ ramen.japanese }} | <a target="_blank" href="https://google.com/maps?q={{ ramen.shop}}">Map</a></h5>

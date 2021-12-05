@@ -9,43 +9,43 @@ date: 2018-08-10
 
 <section class="text">
 
-	<p>
-		While interning at Ecolab in the summer of 2018 I was tasked with creating a tool that would be used to import data from one <a href="https://www.salesforce.com/eu/">Salesforce</a> environment to another.
-	</p>
+    <p>
+        While interning at Ecolab in the summer of 2018 I was tasked with creating a tool that would be used to import data from one <a href="https://www.salesforce.com/eu/">Salesforce</a> environment to another.
+    </p>
 
-	<p>
-		Salesforce is a Customer Relationship Management (CRM) platform that helps businesses manage their customers data. Inside of Salesforce all of the development is done through the cloud. You can create your own data objects as well as logic to deal with the objects. The tool I built was inside of Salesforce and directly interacted with Ecolab's customer data.
-	</p>
+    <p>
+        Salesforce is a Customer Relationship Management (CRM) platform that helps businesses manage their customers data. Inside of Salesforce all of the development is done through the cloud. You can create your own data objects as well as logic to deal with the objects. The tool I built was inside of Salesforce and directly interacted with Ecolab's customer data.
+    </p>
 
-	<p>
-		In most development cycles, software goes through multiple stages. Development, staging, quality assurance (QA), and finally production (what the end users see). Each environment of our software had different data and code. Sometimes if there was a bug in the production environment, my team wanted to duplicate that specific piece of data and move it into a lower environment such as development. 
-	</p>
+    <p>
+        In most development cycles, software goes through multiple stages. Development, staging, quality assurance (QA), and finally production (what the end users see). Each environment of our software had different data and code. Sometimes if there was a bug in the production environment, my team wanted to duplicate that specific piece of data and move it into a lower environment such as development.
+    </p>
 
-	<p>
-		The process of moving data from one environment to another was manual and took about 2 days for one developer to do (if nothing went wrong). First the developer would export the data for each data type into a csv file (there were 21 data types). Each data type was connected to at least one other data type, and often they were connected to many. This created a very complex interweaving of data dependencies. Once the csv files were downloaded, they then had to be imported into the target environment. This required matching up the id fields for the corresponding connected pieces of data. 
-	</p>
+    <p>
+        The process of moving data from one environment to another was manual and took about 2 days for one developer to do (if nothing went wrong). First the developer would export the data for each data type into a csv file (there were 21 data types). Each data type was connected to at least one other data type, and often they were connected to many. This created a very complex interweaving of data dependencies. Once the csv files were downloaded, they then had to be imported into the target environment. This required matching up the id fields for the corresponding connected pieces of data.
+    </p>
 
-	<p>
-		I created a tool that automated this process. There were three drop down menus and a submit button. The first two drop down were your source environment (where you wanted to copy the data from) and your target environment (where you wanted to upload your copied data). The third drop down would populate with all the account names from the source environment. Once you picked and account and hit submit, it would take 1 to 2 minutes to import the data into the target environment.
-	</p>
+    <p>
+        I created a tool that automated this process. There were three drop down menus and a submit button. The first two drop down were your source environment (where you wanted to copy the data from) and your target environment (where you wanted to upload your copied data). The third drop down would populate with all the account names from the source environment. Once you picked and account and hit submit, it would take 1 to 2 minutes to import the data into the target environment.
+    </p>
 
-	<h2>Details</h2>
+    <h2>Details</h2>
 
-	<p>
-		My tool was dynamic in the sense that before importing the data, it would read the metadata for each object to determine which fields needed to be queried and the order that the objects needed to be imported in. For example, each Contact object needed to have a corresponding Account object. An Account object was not dependent on any other object. So the tool would first import the Account objects, and only then could it import the Contact objects because each Contact object had an AccountId field that had to correspond to an object already in data before the Contact object is inserted. You can imagine that these dependencies start to become very complicated very quickly.
-	</p>
+    <p>
+        My tool was dynamic in the sense that before importing the data, it would read the metadata for each object to determine which fields needed to be queried and the order that the objects needed to be imported in. For example, each Contact object needed to have a corresponding Account object. An Account object was not dependent on any other object. So the tool would first import the Account objects, and only then could it import the Contact objects because each Contact object had an AccountId field that had to correspond to an object already in data before the Contact object is inserted. You can imagine that these dependencies start to become very complicated very quickly.
+    </p>
 
-	<p>
-		The back-end was written in Apex, a Java-like Salesforce specific language. It sent requests to the Salesforce API, received JSON responses, and then turned those responses into Salesforce objects. The front end was built in Angular, using Bootstrap for styling. The page was built inside a Visualforce page in Salesforce.
-	</p>
+    <p>
+        The back-end was written in Apex, a Java-like Salesforce specific language. It sent requests to the Salesforce API, received JSON responses, and then turned those responses into Salesforce objects. The front end was built in Angular, using Bootstrap for styling. The page was built inside a Visualforce page in Salesforce.
+    </p>
 
-	<p>
-		The tool was also atomic, so if any insertion failed all of the previous insertions would get undone. Errors were also captured into a custom object which was displayed on the front end. The front end also featured a progress bar that would display which object was currently being imported and how many more were still to be imported.
-	</p>
+    <p>
+        The tool was also atomic, so if any insertion failed all of the previous insertions would get undone. Errors were also captured into a custom object which was displayed on the front end. The front end also featured a progress bar that would display which object was currently being imported and how many more were still to be imported.
+    </p>
 
-	<p>
-		I believe my tool was a huge success and has improved the workflow at the Ecolab B2B development team greatly. Now they are able to move data around from environment to environment seamlessly, which will speed up their process of debugging and will only more test data that is from the production environment.
-	</p>
+    <p>
+        I believe my tool was a huge success and has improved the workflow at the Ecolab B2B development team greatly. Now they are able to move data around from environment to environment seamlessly, which will speed up their process of debugging and will only more test data that is from the production environment.
+    </p>
 
 </section>
 
