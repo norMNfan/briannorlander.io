@@ -29,7 +29,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-scss-lint": "^0.7.2",
     "gulp-shell": "^0.8.0",
-    "gulp-sourcemaps": "^1.6.0",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "image-size": "^0.7.2",
     "jshint": "^2.9.1"
