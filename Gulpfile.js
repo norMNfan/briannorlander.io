@@ -11,6 +11,7 @@ var del = require('del');
 var es = require('event-stream');
 var flatmap = require('gulp-flatmap');
 var fs = require('fs');
+var formatHtml = require('gulp-format-html')
 var gm = require('gulp-gm');
 var gulp = require('gulp');
 var imagemin = require('gulp-imagemin');
@@ -345,3 +346,12 @@ gulp.task('serve', gulp.series('build', function(done) {
 }, 'watch'));
 
 gulp.task('default', gulp.series('serve'));
+
+gulp.task('format', function () {
+  return (
+    gulp
+      .src('_travel/*.html')
+      .pipe(formatHtml())
+      .pipe(gulp.dest('_travel/'))
+  )
+});
