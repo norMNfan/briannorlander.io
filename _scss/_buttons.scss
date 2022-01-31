@@ -31,3 +31,36 @@
     }
   }
 }
+
+.text-button {
+  border: 0;
+  color: $my-gray;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: 0;
+  text-decoration: none;
+  user-select: none;
+
+  &:hover {
+    border-color: $black;
+    color: $black;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &:not(.no-arrow) {
+    &::after {
+      content: '\2192';
+      display: inline-block;
+      padding-left: 1rem;
+      transform: translate3d(-0.5rem, 0, 0);
+      transition: 0.3s ease transform;
+    }
+
+    &:hover::after {
+      transform: none;
+    }
+  }
+}

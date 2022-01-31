@@ -1,21 +1,27 @@
+<!-- TODO: Fix header in every section -->
 <header>
     <div class="content">
-        {% if page.redirect.to %}
-        <h1 class="path">&nbsp;</h1> <!-- For spacing -->
-        {% else %}
-        <h1 class="path">
-            <span class="component"><a href="/">~</a></span>
-            <span class="slash">/</span>
+        <!-- If the page has a title, then display the title in and h1 block -->
+        {% if page.title %}
+        <p class="path">
             <span class="component"><a href="/">Brian Norlander</a></span>
-            {% if page.collection %}
             <span class="slash">/</span>
             <span class="component capitalize"><a href="/{{ page.collection }}/">{{ page.collection }}</a></span>
-            {% endif %}
-            {% unless page.is_home %}
             <span class="slash">/</span>
+        </p>
+        <h1>
             <br class="mobile-only">
             <span class="component"><a href="{{ page.url }}">{{ page.title }}</a></span>
-            {% endunless %}
+        </h1>
+
+        <!-- If the page does not have a title, then display the collectio name in an h1 block -->
+        {% else %}
+        <p class="path">
+            <span class="component"><a href="/">Brian Norlander</a></span>
+            <span class="slash">/</span>
+        </p>
+        <h1>
+            <span class="component capitalize"><a href="/{{ page.collection }}/">{{ page.collection }}</a></span>
         </h1>
         {% endif %}
     </div>

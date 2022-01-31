@@ -1,53 +1,32 @@
 <footer>
     <div class="content">
+        <section>
+            <hr>
+        </section>
+    </div>
+    <div class="content">
         <div class="footer-wrapper">
             <div class="about-wrapper">
-                {% if page.redirect.to %}
-                <h2 class="path">&nbsp;</h2> <!-- For spacing -->
-                {% else %}
-                <h2 class="path">
-                    <span class="component tilde"><a href="/">~</a></span>
-                    <span class="slash">/</span>
-                    <span class="component"><a href="/">Brian Norlander</a></span>
+                <h2>
+                    <a href="/">Brian<br>Norlander</a>
                 </h2>
-                {% endif %}
             </div>
             <div class="links-wrapper">
                 <div class="pages">
-                    <h2 class="path">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="/projects/">Projects</a>
-                        </span>
-                    </h2>
-                    <h2 class="path">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="/travel/">Travel</a>
-                        </span>
-                    </h2>
-                    <h2 class="path">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="/writing/">Writing</a>
-                        </span>
-                    </h2>
-                    <h2 class="path">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="/lists/">Lists</a>
-                        </span>
-                    </h2>
+                    <h3>
+                        <a href="/travel/">Travel</a> ·
+                        <a href="/projects/">Projects</a> ·
+                        <a href="/lists/">Lists</a> ·
+                        <a href="/writing/">Writing</a>
+                    </h3>
                 </div>
                 <div class="links">
-                    {% for account in site.data.social %}
-                    <h2 class="path {{ account.class }}">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="{{ account.url }}">{{ account.title }}</a>
-                        </span>
-                    </h2>
-                    {% endfor %}
+                    <h3>
+                        {% for account in site.data.social %}
+                        <a href="{{ account.url }}">{{ account.title }}</a>
+                        {% if forloop.index0 < 4 %} · {% endif %}
+                        {% endfor %}
+                    </h3>
                 </div>
             </div>
         </div>

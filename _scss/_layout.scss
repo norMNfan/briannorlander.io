@@ -5,7 +5,7 @@ $text-width: 44rem;
   @include clearfix;
   margin: 0 auto;
   max-width: $content-width;
-  padding: 6rem 4rem;
+  padding: 0 4rem;
   width: 100%;
 
   > *:last-child {
@@ -14,10 +14,12 @@ $text-width: 44rem;
 }
 
 section {
-  margin: 6rem 0;
+  contain-intrinsic-size: 1000px; // Total estimate
+  content-visibility: auto;
+
+  padding: 3rem 0;
 
   &.collection {
-    padding: 4.5rem 0;
 
     &:first-child {
       padding-top: 0;
@@ -31,10 +33,6 @@ section {
   &.text {
     max-width: $text-width;
     width: 100%;
-
-    + .collection {
-      padding-top: 1.5rem;
-    }
   }
 
   &.map {
@@ -45,32 +43,44 @@ section {
       display: block;
     }
   }
+
+  .home-header {
+    padding-top: 12rem;
+  }
 }
 
 nav {
   margin: -3rem 0 -1.5rem;
 }
 
-
 @media screen and (max-width: $phone-landscape-max) {
-  h3, %h3 {
+  h3,
+  %h3 {
     font-size: 1.25rem;
   }
 
   section {
-    margin: 8rem 0;
+    padding: 3rem 0;
 
     &.map {
       margin: 0 -2rem -2rem;
     }
+
+    .text {
+      max-width: 48rem;
+      width: 100%;
+    }
   }
 
   .content {
-    padding: 6rem 2rem;
+    padding: 0 1rem;
   }
-
 
   .text.hero-image {
     margin: -4rem 0;
   }
+}
+
+.home-header {
+  padding-top: 9rem;
 }

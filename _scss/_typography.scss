@@ -1,4 +1,5 @@
 // Font weights
+$super-bold: 900;
 $bold: 700;
 $regular: 400;
 
@@ -6,21 +7,23 @@ $monospace: 'Inconsolata', monospace;
 $sans: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 h1, %h1 {
-  font-family: $monospace;
-  font-size: 1.25rem;
-  font-weight: $regular;
-  letter-spacing: 0.5px;
-  line-height: 2;
+  font-family: $sans;
+  font-size: 4.5rem;
+  font-weight: $super-bold;
+  line-height: 5rem;
+  margin-bottom: 2rem;
 }
 
 h2, %h2 {
-  font-family: $monospace;
-  font-size: 1.25rem;
+  font-family: $sans;
+  font-size: 2rem;
+  font-weight: $super-bold;
 }
 
 h3, %h3 {
   font-family: $monospace;
-  font-size: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
 }
 
 h4, %h4 {
@@ -36,7 +39,7 @@ h5, %h5 {
 
 p {
   font-family: $sans;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: $regular;
   line-height: 1.8;
   margin-bottom: 1.5rem;

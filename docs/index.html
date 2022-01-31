@@ -48,43 +48,28 @@
     <body>
         
         <div class="scrim"></div>
-        <header>
-    <div class="content">
         
-        <h1 class="path">
-            <span class="component"><a href="/">~</a></span>
-            <span class="slash">/</span>
-            <span class="component"><a href="/">Brian Norlander</a></span>
-            
-            
-        </h1>
-        
-    </div>
-</header>
 <div class="content">
-    <section class="text">
-        <h2>
+    <section class="text home-header">
+        <h1>Brian<br>Norlander</h1>
+        <p>
             Software Engineer at <a href="https://picnic.app/nl/">Picnic Technologies</a> in Amsterdam.
             Previously at <a href="https://www.rakuten.com/">Rakuten</a> in Tokyo.
             Studied at <a href="https://www.ust.hk/">HKUST</a> in Hong Kong and Computer Science at the <a href="https://twin-cities.umn.edu/">University of Minnesota</a>.
-            <br>
-            <br>
-            <h2>
-                Software engineer with 3+ years of experience building web applications in Java, Kotlin, Springboot, MongoDB, Rabbitmq and more.<br>
-                I love tech, traveling, and ramen. This is where I (infrequently) write about these things.
-                <br>
-                <br>
-                Email me at <a href="mailto:bpnorlander@gmail.com">bpnorlander@gmail.com</a>
-            </h2>
-        </h2>
+            Email me at <a href="mailto:bpnorlander@gmail.com">bpnorlander@gmail.com</a>
+        </p>
     </section>
 
     <section class="collection">
-    <h4 class="path">
-        <span class="slash">/</span>
-        <span class="component"><a href="/travel/">Travel</a></span>
-    </h4>
-    <div class="boxes">
+    <div class="collection-header">
+        <h2>
+            <span class="component"><a href="/travel/">Travel</a></span>
+        </h2>
+        <a href="/travel/" class="text-button">
+            More <span class="hide-mobile">Travel</span>
+        </a>
+    </div>
+    <div class="boxes mini">
         
 
         
@@ -233,7 +218,7 @@
             
             
             
-                <div class="box ">
+            <div class="box ">
     <div class="figure-wrapper">
         
         
@@ -257,16 +242,33 @@
         
     </div>
 </div>
-                
-                <div class="box">
-    <div class="figure-wrapper more">
-        <a href="/travel/">
-            <span class="ellipsis">&middot;&middot;&middot;</span>
-        </a>
+            
+            
+            
+                <div class="box ">
+    <div class="figure-wrapper">
+        
+        
+<a href="/travel/osaka-2019/" ">
+    
+    <figure class="progressive-image force-small" data-small="/img/res/400/travel/osaka/IMG_20190430_174259_featured.jpg" data-medium="/img/res/800/travel/osaka/IMG_20190430_174259_featured.jpg" data-large="/img/res/1600/travel/osaka/IMG_20190430_174259_featured.jpg" data-raw="/img/res/raw/travel/osaka/IMG_20190430_174259_featured.jpg">
+        <div class="aspect-ratio-holder" style="padding-bottom: 50.0%"></div>
+        <img class="thumbnail" src="/img/res/20/travel/osaka/IMG_20190430_174259_featured.jpg" alt="">
+    </figure>
+    
+</a>
+
+        
     </div>
-    <h3><a href="/travel/">More Travel</a></h3>
+    <div>
+        <h3>
+            <a href="/travel/osaka-2019/">
+                Kansai, Spring 2019
+            </a>
+        </h3>
+        
+    </div>
 </div>
-                
             </div>
             
             
@@ -275,11 +277,15 @@
     </div>
 </section>
     <section class="collection">
-    <h4 class="path">
-        <span class="slash">/</span>
-        <span class="component"><a href="/projects/">Projects</a></span>
-    </h4>
-    <div class="boxes">
+    <div class="collection-header">
+        <h2>
+            <span class="component"><a href="/projects/">Projects</a></span>
+        </h2>
+        <a href="/projects/" class="text-button">
+            More <span class="hide-mobile">Projects</span>
+        </a>
+    </div>
+    <div class="boxes mini">
         
 
         
@@ -388,24 +394,18 @@
 </div>
         
         
-        <div class="box">
-    <div class="figure-wrapper more">
-        <a href="/projects/">
-            <span class="ellipsis">&middot;&middot;&middot;</span>
-        </a>
-    </div>
-    <h3><a href="/projects/">More Projects</a></h3>
-</div>
-        
-        
     </div>
 </section>
     <section class="collection">
-    <h4 class="path">
-        <span class="slash">/</span>
-        <span class="component"><a href="/lists/">Lists</a></span>
-    </h4>
-    <div class="boxes">
+    <div class="collection-header">
+        <h2>
+            <span class="component"><a href="/lists/">Lists</a></span>
+        </h2>
+        <a href="/lists/" class="text-button">
+            More <span class="hide-mobile">Lists</span>
+        </a>
+    </div>
+    <div class="boxes mini">
         
 
         
@@ -464,15 +464,18 @@
 </div>
         
         
-        
     </div>
 </section>
     <section class="collection">
-    <h4 class="path">
-        <span class="slash">/</span>
-        <span class="component"><a href="/writing/">Writing</a></span>
-    </h4>
-    <div class="boxes">
+    <div class="collection-header">
+        <h2>
+            <span class="component"><a href="/writing/">Writing</a></span>
+        </h2>
+        <a href="/writing/" class="text-button">
+            More <span class="hide-mobile">Writing</span>
+        </a>
+    </div>
+    <div class="boxes mini">
         
 
         
@@ -506,7 +509,6 @@
 </div>
         
         
-        
     </div>
 </section>
 </div>
@@ -520,80 +522,45 @@
 
 <footer>
     <div class="content">
+        <section>
+            <hr>
+        </section>
+    </div>
+    <div class="content">
         <div class="footer-wrapper">
             <div class="about-wrapper">
-                
-                <h2 class="path">
-                    <span class="component tilde"><a href="/">~</a></span>
-                    <span class="slash">/</span>
-                    <span class="component"><a href="/">Brian Norlander</a></span>
+                <h2>
+                    <a href="/">Brian<br>Norlander</a>
                 </h2>
-                
             </div>
             <div class="links-wrapper">
                 <div class="pages">
-                    <h2 class="path">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="/projects/">Projects</a>
-                        </span>
-                    </h2>
-                    <h2 class="path">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="/travel/">Travel</a>
-                        </span>
-                    </h2>
-                    <h2 class="path">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="/writing/">Writing</a>
-                        </span>
-                    </h2>
-                    <h2 class="path">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="/lists/">Lists</a>
-                        </span>
-                    </h2>
+                    <h3>
+                        <a href="/travel/">Travel</a> ·
+                        <a href="/projects/">Projects</a> ·
+                        <a href="/lists/">Lists</a> ·
+                        <a href="/writing/">Writing</a>
+                    </h3>
                 </div>
                 <div class="links">
-                    
-                    <h2 class="path ">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="/img/resume.pdf">Resume</a>
-                        </span>
-                    </h2>
-                    
-                    <h2 class="path ">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="https://github.com/norMNfan">GitHub</a>
-                        </span>
-                    </h2>
-                    
-                    <h2 class="path ">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="https://www.linkedin.com/in/brian-norlander-1a7495160/">LinkedIn</a>
-                        </span>
-                    </h2>
-                    
-                    <h2 class="path ">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="https://medium.com/@bpnorlander">Medium</a>
-                        </span>
-                    </h2>
-                    
-                    <h2 class="path ">
-                        <span class="slash">/</span>
-                        <span class="component">
-                            <a href="mailto:bpnorlander@gmail.com">Email</a>
-                        </span>
-                    </h2>
-                    
+                    <h3>
+                        
+                        <a href="/img/resume.pdf">Resume</a>
+                         · 
+                        
+                        <a href="https://github.com/norMNfan">GitHub</a>
+                         · 
+                        
+                        <a href="https://www.linkedin.com/in/brian-norlander-1a7495160/">LinkedIn</a>
+                         · 
+                        
+                        <a href="https://medium.com/@bpnorlander">Medium</a>
+                         · 
+                        
+                        <a href="mailto:bpnorlander@gmail.com">Email</a>
+                        
+                        
+                    </h3>
                 </div>
             </div>
         </div>

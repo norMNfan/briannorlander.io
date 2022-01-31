@@ -18,8 +18,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   a {
     color: $black;
+    font-family: $sans;
     text-decoration-color: $black;
-    text-decoration-line: underline;
+    text-decoration-line: none;
     transition: 0.3s ease all;
 
     &:hover {
