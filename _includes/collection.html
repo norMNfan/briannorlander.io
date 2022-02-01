@@ -43,7 +43,7 @@
             {% endfor %}
         </div>
         {% else %}
-        {% for page in collection | limit:7 %}
+        {% for page in collection | limit:8 %}
         {% include box.html page=page %}
         {% endfor %}
         {% endif %}
