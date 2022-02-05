@@ -1,10 +1,32 @@
+
+{% assign urlAsAlt = include.src | split:"/" | last | split:"." | first | replace:"-"," " | capitalize %}
 {% if include.link %}
-<a href="{{ include.link }}" {% if include.target %}target="{{ include.target }}{% endif %}">
-    {% endif %}
-    <figure class="progressive-image {{ include.class }}" data-small="/img/res/400/{{ include.src }}" data-medium="/img/res/800/{{ include.src }}" data-large="/img/res/1600/{{ include.src }}" data-raw="/img/res/raw/{{ include.src }}">
-        <div class="aspect-ratio-holder" style="padding-bottom: {{1.0 | divided_by: site.data.responsiveMetadata.aspectRatios[include.src] | times: 100 }}%"></div>
-        <img class="thumbnail" src="/img/res/20/{{ include.src }}" alt="">
-    </figure>
-    {% if include.link %}
+<a href="{{ include.link }}" class="progressive-link" {% if include.target %}target="{{ include.target }}{% endif %}">
+{% endif %}
+<figure class="progressive-image {{ include.class }}"
+        data-small="/img/res/400/{{ include.src }}"
+        data-medium="/img/res/800/{{ include.src }}"
+        data-large="/img/res/1600/{{ include.src }}"
+        data-raw="/img/res/raw/{{ include.src }}"
+        data-alt="{% if include.alt %}{{ include.alt }}{% else %}{{ urlAsAlt }}{% endif %}"
+        {% if site.data.travelPhotos[include.src] %}
+        id={{site.data.travelPhotos[include.src].hash}}
+        {% endif %}
+        >
+    <div class="aspect-ratio-holder"
+        style="padding-bottom: {{1.0 | divided_by: site.data.responsiveMetadata.aspectRatios[include.src] | times: 100 }}%"></div>
+    <img class="thumbnail"
+        alt="{% if include.alt %}{{ include.alt }}{% else %}{{ urlAsAlt }}{% endif %}"
+        src="/img/res/20/{{ include.src }}"alt="">
+    {% unless include.link %}
+        {% if site.data.travelPhotos[include.src] %}
+            <a class="self-link" href="#{{site.data.travelPhotos[include.src].hash}}">
+                <i>{% include svg/link.html %}</i>
+                <label>Copy link to clipboard</label>
+            </a>
+        {% endif %}
+    {% endunless %}
+</figure>
+{% if include.link %}
 </a>
 {% endif %}
