@@ -26,16 +26,6 @@ do
             count=$((count+1))
         fi
     fi
-
-    
-
-    # echo $storedImageFilename
-
-    # if [[ " ${usedImages[*]} " == $storedImageFilename ]]; then
-    #     echo $storedImageFilename
-    #     count=$((count+1))
-    # fi
-
 done
 
-echo $count
+echo "$count images deleted"
