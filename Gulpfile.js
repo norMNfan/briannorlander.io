@@ -145,11 +145,11 @@ gulp.task('js', gulp.series('js:lint', 'js:build'));
  **********************/
 
 gulp.task('images', function() {
-    var dest = './img/';
+    var dest = './docs/img/';
     return gulp.src('./_img/**/*')
         .pipe(plumber())
         .pipe(changed(dest))
-        .pipe(gulp.dest('./docs/img/'))
+        // .pipe(gulp.dest('./docs/img/'))
         .pipe(reload({
             stream: true
         }))
@@ -362,23 +362,10 @@ gulp.task('moveSite', function() {
         .pipe(gulp.dest(dest));
 });
 
-// Moves images needed to build the site
-gulp.task('moveImg', function() {
-    var dest = './docs/img/';
-    return gulp.src('./_img/**/*')
-        .pipe(plumber())
-        .pipe(changed(dest))
-        .pipe(gulp.dest(dest))
-        .pipe(reload({
-            stream: true
-        }))
-        .pipe(gulp.dest(dest));
-});
-
 // responsive, images, 
 gulp.task('deploy', gulp.series('beautify', 'build:optimized', function(done) {
     done();
-}, 'moveImg'));
+}, 'images'));
 
 // use default task to launch Browsersync and watch JS files
 gulp.task('serve', gulp.series('build', function(done) {
