@@ -383,6 +383,7 @@ gulp.task('deploy', gulp.series('beautify', 'build:optimized', function(done) {
 // use default task to launch Browsersync and watch JS files
 gulp.task('serve', gulp.series('build', function(done) {
 
+    // Serve files from the root of this project
     browserSync.init(['./dist/**/*'], {
         ghostMode: {
             clicks: false,

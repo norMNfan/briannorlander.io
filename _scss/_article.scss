@@ -1,23 +1,13 @@
 article {
-  padding-top: 2rem;
-
-  &.with-full-bleed-image {
-    padding-top: 3rem;
-  }
-
-  &.with-large-image {
-    padding-top: 0;
-    margin-top: -3rem;
-  }
-
   h2 {
     font-family: $sans;
     font-size: 3.5rem;
-    font-weight: $extra-bold;
+    font-weight: $bold;
     line-height: 1.25;
     margin: 6rem 0 1.5rem;
 
     + h3 {
+      font-family: $monospace;
       font-size: 1.5rem;
       margin: -1.5rem 0 2.5rem;
     }
@@ -31,13 +21,15 @@ article {
   }
 
   h4 {
+    font-size: 1rem;
     margin: 1rem 0;
   }
 
   aside {
     border-left: 0.5rem solid $lighter-gray;
-    padding-left: 1.5rem;
+    font-style: italic;
     margin: 1.5rem 0;
+    padding-left: 1.5rem;
   }
 
   blockquote {
@@ -46,14 +38,12 @@ article {
     padding: 3rem;
   }
 
-  .highlight,
-  .scary-math {
+  .highlight, .scary-math {
     position: relative;
 
-    &::after,
-    &::before {
+    &::after, &::before {
       bottom: 0;
-      content: " ";
+      content: ' ';
       position: absolute;
       top: 0;
       width: 2rem;
@@ -61,20 +51,12 @@ article {
     }
 
     &::before {
-      background: linear-gradient(
-        to left,
-        rgba($lighter-gray, 0),
-        $lighter-gray
-      );
+      background: linear-gradient(to left, rgba($lighter-gray, 0), $lighter-gray);
       left: 0;
     }
 
     &::after {
-      background: linear-gradient(
-        to right,
-        rgba($lighter-gray, 0),
-        $lighter-gray
-      );
+      background: linear-gradient(to right, rgba($lighter-gray, 0), $lighter-gray);
       right: 0;
     }
   }
@@ -106,8 +88,7 @@ article {
     padding: 0.25rem 0.5rem;
   }
 
-  ol,
-  ul {
+  ol, ul {
     margin: 1.5rem 0;
     padding-left: 3rem;
 
@@ -116,8 +97,7 @@ article {
       margin-bottom: 1rem;
       padding-left: 1rem;
 
-      figure,
-      figure:last-child {
+      figure, figure:last-child {
         margin: 3rem 0;
       }
     }
@@ -145,9 +125,8 @@ article {
     }
   }
 
-  .timestamp,
-  .button {
-    @extend %h5;
+  .timestamp, .button {
+    @extend %h3;
     font-weight: $regular;
   }
 
@@ -163,13 +142,8 @@ article {
     }
   }
 
-  .timestamp {
-    margin: 3rem 0;
-  }
-
-  .cta {
-    // compensating for paragraph margin
-    margin: 1.5rem 0 3rem;
+  .timestamp, .cta {
+    margin: 2.5rem 0 4rem;
   }
 
   figure {
@@ -232,8 +206,7 @@ article {
 
 @media screen and (max-width: $tablet-portrait-max) {
   article {
-    blockquote,
-    form {
+    blockquote, form {
       margin-left: -4rem;
       margin-right: -4rem;
       padding-left: 4rem;
@@ -244,8 +217,7 @@ article {
 
 @media screen and (max-width: $phone-landscape-max) {
   article {
-    blockquote,
-    form {
+    blockquote, form {
       margin-left: -2rem;
       margin-right: -2rem;
       padding-left: 2rem;
@@ -256,8 +228,7 @@ article {
       margin: 3rem 0;
     }
 
-    ol,
-    ul {
+    ol, ul {
       padding-left: 2rem;
 
       li {
@@ -265,17 +236,54 @@ article {
       }
     }
 
-    figure {
-      margin: 3rem 0;
-      & + h5 {
-        margin: -2rem 0 3rem;
-        padding: 0;
-        text-align: left;
-      }
+    section {
+      margin: 6rem 0;
+    }
+
+    figure + h5 {
+      padding: 0;
+      text-align: left;
     }
 
     h2 {
       font-size: 2rem;
+    }
+  }
+}
+
+$bg: #fff;
+
+.quote {
+  display:inline-block;
+  overflow:hidden;
+  blockquote {
+    background-color:$bg;
+    border: solid 2px #757575;
+    display: inline-block;
+    margin: 0;
+    padding: 1em;
+    position: relative;
+    &:before {
+      background-color: $bg;
+      bottom: -10%;
+      content: "";
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: -10%;
+      transform: rotate(-15deg) skew(5deg);
+    }
+    cite {
+      display: block;
+      font-style: italic;
+      text-align: right;
+      &:before {
+        content: "- ";
+      }
+    }
+    > * {
+      position: relative;
+      z-index: 1;
     }
   }
 }

@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
   color: $black;
   font-family: $sans;
   font-size: 16px;
@@ -8,18 +7,18 @@ body {
   position: relative;
 }
 
+html {
+  background-color: $lighter-gray;
+}
+
 body {
   background-color: $white;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   a {
     color: $black;
+    font-family: $sans;
     text-decoration-color: $black;
     text-decoration-line: none;
     transition: 0.3s ease all;
@@ -31,16 +30,7 @@ h6 {
   }
 }
 
-hr {
-  border: 0;
-  outline: 0;
-  height: 1px;
-  background-color: $light-gray;
-  margin: 0;
-}
-
-p a,
-article h2 a {
+p a, article h2 a {
   border: 0;
   color: $black;
   text-decoration: underline;
@@ -56,11 +46,11 @@ article h2 a {
 %subtle-link {
   text-decoration-color: $transparent;
   text-decoration-line: underline;
-  transition: 0.3s ease color;
+  transition: 0.3s ease text-decoration-color;
 
   &:hover {
-    color: $medium-gray;
-    text-decoration-color: $transparent;
+    color: $black;
+    text-decoration-color: $black;
   }
 }
 
@@ -68,9 +58,7 @@ img {
   max-width: 100%;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -86,7 +74,7 @@ img {
 @mixin clearfix {
   &::after {
     clear: both;
-    content: " ";
+    content: ' ';
     display: block;
   }
 }
