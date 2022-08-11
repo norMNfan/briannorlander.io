@@ -145,11 +145,11 @@ gulp.task('js', gulp.series('js:lint', 'js:build'));
  **********************/
 
 gulp.task('images', function() {
-    var dest = './docs/img/';
+    var dest = './img/';
     return gulp.src('./_img/**/*')
         .pipe(plumber())
         .pipe(changed(dest))
-        // .pipe(gulp.dest('./docs/img/'))
+        .pipe(gulp.dest('./docs/img/'))
         .pipe(reload({
             stream: true
         }))
@@ -278,8 +278,8 @@ gulp.task('responsive:clean', function(done) {
 gulp.task('responsive',
     gulp.series(
         'responsive:clean',
-        gulp.parallel('responsive:resize', 'responsive:metadata'),
-        'images'
+        gulp.parallel('responsive:resize', 'responsive:metadata')
+        // 'images'
     )
 );
 
@@ -362,7 +362,7 @@ gulp.task('moveSite', function() {
         .pipe(gulp.dest(dest));
 });
 
-// responsive, images, 
+// Prepares files for deployment
 gulp.task('deploy', gulp.series('beautify', 'build:optimized', function(done) {
     done();
 }, 'images'));

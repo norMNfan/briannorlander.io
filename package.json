@@ -39,5 +39,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/normnfan/briannorlander.io.git"
+  },
+  "dependencies": {
+    "bundle": "^2.1.0"
   }
 }
