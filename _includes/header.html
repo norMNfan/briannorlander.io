@@ -1,28 +1,24 @@
-<!-- TODO: Fix header in every section -->
 <header>
     <div class="content">
-        <!-- If the page has a title, then display the title in and h1 block -->
-        {% if page.title %}
-        <p class="path">
-            <span class="component"><a href="/">Brian Norlander</a></span>
-            <span class="slash">/</span>
-            <span class="component capitalize"><a href="/{{ page.collection }}/">{{ page.collection }}</a></span>
-            <span class="slash">/</span>
-        </p>
-        <h1>
-            <br class="mobile-only">
-            <span class="component"><a href="{{ page.url }}">{{ page.title }}</a></span>
-        </h1>
-
-        <!-- If the page does not have a title, then display the collectio name in an h1 block -->
+        {% if page.redirect.to %}
+        <h1>&nbsp;</h1> <!-- For spacing -->
         {% else %}
         <p class="path">
             <span class="component"><a href="/">Brian Norlander</a></span>
+            {% if page.collection and page.title%}
             <span class="slash">/</span>
-        </p>
-        <h1>
             <span class="component capitalize"><a href="/{{ page.collection }}/">{{ page.collection }}</a></span>
-        </h1>
+            {% endif %}
+            <span class="slash">/</span>
+            <br class="mobile-only">
+        </p>
+        {% unless page.hero_style == 'full_bleed' %}
+        {% if page.title %}
+        <h1>{% include no_orphans.html text=page.title %}</h1>
+        {% elsif page.collection %}
+        <h1>{% include no_orphans.html text=page.collection %}</h1>
+        {% endif %}
+        {% endunless %}
         {% endif %}
     </div>
 </header>

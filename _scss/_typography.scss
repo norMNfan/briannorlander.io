@@ -1,43 +1,79 @@
 // Font weights
-$super-bold: 900;
-$bold: 700;
+$extra-bold: 900;
+$bold: 600;
 $regular: 400;
 
-$monospace: 'Inconsolata', monospace;
-$sans: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: "MD System";
+  font-weight: $regular;
+  src: url("/font/MDSystem-Regular.otf") format("opentype");
+}
 
-h1, %h1 {
+@font-face {
+  font-family: "MD System";
+  font-style: italic;
+  font-weight: $regular;
+  src: url("/font/MDSystem-Italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "MD System";
+  font-weight: $bold;
+  src: url("/font/MDSystem-Dark.otf") format("opentype");
+}
+@font-face {
+  font-family: "MD System";
+  font-weight: $extra-bold;
+  src: url("/font/MDSystem-Heavy.otf") format("opentype");
+}
+
+$monospace: "Incosolata", monospace;
+$sans: "MD System", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+h1,
+%h1 {
   font-family: $sans;
   font-size: 4.5rem;
-  font-weight: $super-bold;
+  font-weight: $extra-bold;
   line-height: 5rem;
-  margin-bottom: 2rem;
+  widows: 2;
 }
 
-h2, %h2 {
+h2,
+%h2 {
   font-family: $sans;
-  font-size: 2rem;
-  font-weight: $super-bold;
+  font-size: 1.75rem;
+  font-weight: $extra-bold;
 }
 
-h3, %h3 {
-  font-family: $monospace;
+h3,
+%h3 {
+  font-family: $sans;
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: $bold;
+  line-height: 1.75rem;
 }
 
-h4, %h4 {
-  font-family: $monospace;
-  font-size: 1.25rem;
+h4,
+%h4 {
+  font-family: $sans;
+  font-size: 1.125rem;
+  font-weight: $bold;
   margin-bottom: 4rem;
 }
 
-h5, %h5 {
-  font-family: $monospace;
-  font-size: 1rem;
+h5,
+%h5 {
+  font-family: $sans;
+  font-size: 0.9375rem;
+  font-weight: $regular;
+  line-height: 1.5rem;
 }
 
-p {
+p,
+%p,
+ul li,
+ol li {
   font-family: $sans;
   font-size: 1.125rem;
   font-weight: $regular;
@@ -50,7 +86,14 @@ strong {
 }
 
 @media screen and (max-width: $phone-landscape-max) {
-  p, %p, li, %li {
-    font-size: 1.25rem;
+  h1,
+  %h1 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+
+  .home-header h1 {
+    font-size: 4.5rem;
+    line-height: 5rem;
   }
 }

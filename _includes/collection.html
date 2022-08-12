@@ -1,51 +1,67 @@
 <section class="collection">
     <div class="collection-header">
         <h2>
-            <span class="component"><a href="{{ include.url }}">{{ include.title }}</a></span>
+            <span class="component"><a href="{{ include.url }}">{% if include.isBottomOfStory%}More {% endif %}{{ include.title }}</a></span>
         </h2>
-        <a href="{{ include.url }}" class="text-button">
+        {% unless include.isBottomOfStory %}
+        <a href="{{include.url}}" class="text-button">
             More <span class="hide-mobile">{{ include.title }}</span>
         </a>
+        {% endunless %}
     </div>
-    <div class="boxes mini">
+    <div class="boxes {% if include.mini%}mini{% endif %}">
         {% assign collection = include.collection | reverse %}
 
         {% if include.exclude %}
-        {% comment %} Create Empty Array: {% endcomment%}
-        {% assign tmp = "" | split:"|"  %}
+            {% comment %} Create Empty Array: {% endcomment%}
+            {% assign tmp = "" | split:"|"  %}
 
-        {% comment %} Set tmp to be collection except for the excluded page: {% endcomment%}
-        {% for p in collection %}
-        {% unless p == include.exclude %}
-        {% assign tmp = tmp | push: p %}
-        {% endunless %}
-        {% endfor %}
+            {% comment %} Set tmp to be collection except for the excluded page: {% endcomment%}
+            {% for p in collection %}
+                {% unless p == include.exclude %}
+                {% assign tmp = tmp | push: p %}
+                {% endunless %}
+            {% endfor %}
 
-        {% comment %} Reassign to collection: {% endcomment %}
-        {% assign collection = tmp %}
+            {% comment %} Reassign to collection: {% endcomment %}
+            {% assign collection = tmp %}
         {% endif %}
 
-        {% assign more_text = include.title | prepend: "More " %}
         {% if include.feature == "first" %}
-        <div class="feature-section">
+            <div class="feature-section">
             {% for page in collection | limit:7 %}
             {% if forloop.index0 == 0 %}
-            {% include box.html page=page featured=true %}
+                {% include box.html page=page featured=true %}
             {% elsif forloop.index0 == 1 %}
-            <div class="alongside-featured">
-                {% include box.html page=page %}
-                {% elsif forloop.index0 == 6 %}
-                {% include box.html page=page %}
-            </div>
+                <div class="alongside-featured">
+                    {% include box.html page=page %}
+            {% elsif forloop.index0 == 6 %}
+                    {% include box.html page=page %}
+                    <!-- {% if collection.size > 6 %}
+                        {% include more.html text=more_text href=include.url %}
+                    {% endif %} -->
+                </div>
             {% else %}
-            {% include box.html page=page %}
+                    {% include box.html page=page %}
             {% endif %}
             {% endfor %}
-        </div>
+            </div>
         {% else %}
-        {% for page in collection | limit:8 %}
-        {% include box.html page=page %}
-        {% endfor %}
+            {% if include.mini %}
+                {% for page in collection | limit:4 %}
+                {% include box.html page=page %}
+                {% endfor %}
+                <!-- {% if collection.size > 3 %}
+                {% include more.html text=more_text href=include.url %}
+                {% endif %} -->
+            {% else %}
+                {% for page in collection | limit:8 %}
+                {% include box.html page=page %}
+                {% endfor %}
+                <!-- {% if collection.size > 7 %}
+                {% include more.html text=more_text href=include.url %}
+                {% endif %} -->
+            {% endif %}
         {% endif %}
     </div>
 </section>
