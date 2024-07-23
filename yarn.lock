@@ -3990,10 +3990,10 @@ js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-jshint@^2.13.1:
-  version "2.13.1"
-  resolved "https://registry.npmjs.org/jshint/-/jshint-2.13.1.tgz"
-  integrity sha512-vymzfR3OysF5P774x6zYv0bD4EpH6NWRxpq54wO9mA9RuY49yb1teKSICkLx2Ryx+mfzlVVNNbTBtsRtg78t7g==
+jshint@^2.13.6:
+  version "2.13.6"
+  resolved "https://registry.yarnpkg.com/jshint/-/jshint-2.13.6.tgz#3679a2687a3066fa9034ef85d8c305613a31eec6"
+  integrity sha512-IVdB4G0NTTeQZrBoM8C5JFVLjV2KtZ9APgybDA1MK73xb09qFs0jCXyQLnCOp1cSZZZbvhq/6mfXHUTaDkffuQ==
   dependencies:
     cli "~1.0.0"
     console-browserify "1.1.x"
@@ -4001,7 +4001,6 @@ jshint@^2.13.1:
     htmlparser2 "3.8.x"
     lodash "~4.17.21"
     minimatch "~3.0.2"
-    shelljs "0.3.x"
     strip-json-comments "1.0.x"
 
 json-buffer@3.0.0:
@@ -6070,11 +6069,6 @@ shell-escape@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/shell-escape/-/shell-escape-0.2.0.tgz"
   integrity sha1-aP0CXrBJC09WegJ/C/IkgLX4QTM=
-
-shelljs@0.3.x:
-  version "0.3.0"
-  resolved "https://registry.npmjs.org/shelljs/-/shelljs-0.3.0.tgz"
-  integrity sha1-NZbmMHp4FUT1kfN9phg2DzHbV7E=
 
 sigmund@^1.0.1:
   version "1.0.1"

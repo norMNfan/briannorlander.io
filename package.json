@@ -33,7 +33,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "image-size": "^0.7.2",
-    "jshint": "^2.13.1",
+    "jshint": "^2.13.6",
     "sass": "^1.45.2"
   },
   "repository": {
